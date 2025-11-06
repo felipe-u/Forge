@@ -1,0 +1,22 @@
+import { Navigate, Route, Routes } from 'react-router'
+import Dashboard from '../pages/private/Dashboard'
+import Habits from '../pages/private/Habits'
+import AppLayout from '../layouts/AppLayout'
+import AuthLayout from '../layouts/AuthLayout'
+import Login from '../pages/auth/Login'
+
+export default function AppRoutes() {
+  return (
+    <Routes>
+        <Route element={<AuthLayout />}>
+            <Route path='/login' element={<Login />} />
+        </Route>
+
+      <Route element={<AppLayout />}>
+      <Route index element={<Navigate to='/dashboard' replace/>} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/habits' element={<Habits />} />
+      </Route>
+    </Routes>
+  )
+}

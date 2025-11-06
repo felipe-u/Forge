@@ -1,5 +1,12 @@
+import { BrowserRouter } from 'react-router'
+import AppRoutes from './routes/AppRoutes'
+
 function App() {
-  return (<h1>Forge</h1>)
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  )
 }
 
 export default App

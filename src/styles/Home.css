@@ -32,3 +32,11 @@ nav {
 .menu-btn {
   transform: rotate(-90deg);
 }
+
+section {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 45px;
+  padding: 50px 0;
+}

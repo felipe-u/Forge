@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from 'react-router'
 import { useAuth } from '../hooks/useAuth'
 import { useState } from 'react'
-// import '../styles/Home.css'
+import '../styles/Home.css'
 
 export default function AppLayout() {
   const { logout } = useAuth()

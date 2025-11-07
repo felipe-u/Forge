@@ -1,4 +1,4 @@
-main {
+.auth-main {
   width: 100%;
   height: 100vh;
   display: grid;
@@ -16,7 +16,7 @@ main {
   text-align: center;
 }
 
-form {
+.auth-container form {
   border: 1px solid white;
   display: flex;
   flex-direction: column;

@@ -3,7 +3,7 @@ import '../styles/Auth.css'
 
 export default function AuthLayout() {
   return (
-    <main>
+    <main className='auth-main'>
       <Outlet />
     </main>
   )

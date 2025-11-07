@@ -5,7 +5,7 @@ import AppLayout from '../layouts/AppLayout'
 import AuthLayout from '../layouts/AuthLayout'
 import Login from '../pages/auth/Login'
 import PrivateRoutes from './PrivateRoutes'
-import Habit from '../pages/private/Habit'
+import Habit from '../pages/private/HabitDetails'
 
 export default function AppRoutes() {
   return (

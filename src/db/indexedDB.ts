@@ -55,3 +55,29 @@ export async function getHabits() {
     request.onerror = () => reject(request.error)
   })
 }
+
+export async function getHabit(id: number) {
+  const database = await initDB()
+
+  return new Promise((resolve, reject) => {
+    const tx = database.transaction(STORE_NAME, 'readonly')
+    const store = tx.objectStore(STORE_NAME)
+    const request = store.get(id)
+
+    request.onsuccess = () => resolve(request.result)
+    request.onerror = () => reject(request.error)
+  })
+}
+
+export async function removeHabit(id: number) {
+  const database = await initDB()
+
+  return new Promise((resolve, reject) => {
+    const tx = database.transaction(STORE_NAME, 'readwrite')
+    const store = tx.objectStore(STORE_NAME)
+    const request = store.delete(id)
+
+    request.onsuccess = () => resolve(request.result)
+    request.onerror = () => reject(request.error)
+  })
+}

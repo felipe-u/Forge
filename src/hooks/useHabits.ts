@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { HabitType } from '../types'
-import { createHabit, getAllHabits } from '../services/habits'
+import { createHabit, deleteHabit, getAllHabits, getSingleHabit } from '../services/habits'
 
 export function useHabits() {
   const [habits, setHabits] = useState<HabitType[]>([])
@@ -37,5 +37,25 @@ export function useHabits() {
     }
   }
 
-  return { habits, add, error, loading }
+  async function get(id: string | undefined) {
+    try {
+      setLoading(true)
+      return await getSingleHabit(Number(id))
+    } catch {
+      setError(`Error getting habit with id: ${id}`)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  async function remove(id: string | undefined) {
+    try {
+      setLoading(true)
+      await deleteHabit(Number(id))
+    } catch {
+      setError(`Error deleting habit with id: ${id}`)
+    }
+  }
+
+  return { habits, add, get, remove, error, loading }
 }

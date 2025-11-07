@@ -6,8 +6,8 @@ export default function Habits() {
   const navigate = useNavigate()
   const { habits, add } = useHabits()
 
-  const openHabitDetails = () => {
-    navigate('/habits/1')
+  const openHabitDetails = (id: number | undefined) => {
+    navigate(`/habits/${id}`)
   }
 
   const onCreateHabit = () => {
@@ -24,7 +24,7 @@ export default function Habits() {
             <td>+</td>
           </tr>
           {habits.map((habit) => (
-            <tr key={habit.id} onClick={openHabitDetails}>
+            <tr key={habit.id} onClick={() => openHabitDetails(habit.id)}>
               <td>{habit.name}</td>
             </tr>
           ))}

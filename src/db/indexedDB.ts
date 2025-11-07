@@ -56,7 +56,7 @@ export async function getHabits() {
   })
 }
 
-export async function getHabit(id: number) {
+export async function getHabit(id: number): Promise<HabitType | undefined> {
   const database = await initDB()
 
   return new Promise((resolve, reject) => {
@@ -76,6 +76,19 @@ export async function removeHabit(id: number) {
     const tx = database.transaction(STORE_NAME, 'readwrite')
     const store = tx.objectStore(STORE_NAME)
     const request = store.delete(id)
+
+    request.onsuccess = () => resolve(request.result)
+    request.onerror = () => reject(request.error)
+  })
+}
+
+export async function updateHabit(habit: HabitType) {
+  const database = await initDB()
+
+  return new Promise((resolve, reject) => {
+    const tx = database.transaction(STORE_NAME, 'readwrite')
+    const store = tx.objectStore(STORE_NAME)
+    const request = store.put(habit)
 
     request.onsuccess = () => resolve(request.result)
     request.onerror = () => reject(request.error)

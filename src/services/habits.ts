@@ -1,4 +1,10 @@
-import { addHabit, getHabit, getHabits, removeHabit } from '../db/indexedDB'
+import {
+  addHabit,
+  getHabit,
+  getHabits,
+  removeHabit,
+  updateHabit,
+} from '../db/indexedDB'
 import type { HabitType } from '../types'
 
 export async function getAllHabits() {
@@ -13,16 +19,22 @@ export async function getAllHabits() {
 
 export async function createHabit(habit: { name: string }) {
   try {
-    return await addHabit({ ...habit, createdAt: new Date() })
+    return await addHabit({
+      ...habit,
+      createdAt: new Date(),
+      completedDates: [],
+    })
   } catch (err) {
     console.error('DB failed creating habit: ', err)
     throw err
   }
 }
 
-export async function getSingleHabit(id: number) {
+export async function getSingleHabit(
+  id: number
+): Promise<HabitType | undefined> {
   try {
-    return await getHabit(id)
+    return (await getHabit(id)) as HabitType
   } catch (err) {
     console.error(`DB failed fetching habit with id: ${id}`, err)
   }
@@ -33,5 +45,21 @@ export async function deleteHabit(id: number) {
     return await removeHabit(id)
   } catch (err) {
     console.error(`DB failed deleting habit with id: ${id}`, err)
+  }
+}
+
+export async function completeHabit(id: number) {
+  try {
+    const habit = await getSingleHabit(id)
+    const today = new Date().toISOString().slice(0, 10)
+
+    if (!habit) return
+
+    if (!habit.completedDates.includes(today)) {
+      habit.completedDates.push(today)
+      await updateHabit(habit)
+    }
+  } catch (err) {
+    console.error(`DB failed updating habit with id: ${id}`, err)
   }
 }

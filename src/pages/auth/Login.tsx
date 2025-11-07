@@ -11,9 +11,21 @@ export default function Login() {
   }
 
   return (
-    <>
-      <h2>Login page is working</h2>
-      <button onClick={handleLogin}>Login</button>
-    </>
+    <div className='auth-container'>
+      <h1>Forge</h1>
+      <form>
+        <div className='input-container'>
+          <label htmlFor='email'>Email</label>
+          <input type='email' name='email' id='email' />
+        </div>
+        <div className='input-container'>
+          <label htmlFor='password'>Password</label>
+          <input type='password' name='password' id='password' />
+        </div>
+        <button type='button' onClick={handleLogin}>
+          Login
+        </button>
+      </form>
+    </div>
   )
 }

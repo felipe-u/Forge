@@ -7,4 +7,5 @@ export type HabitType = {
   name: string
   createdAt: Date
   completedDates: string[]
+  streak: number
 }

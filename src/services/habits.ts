@@ -6,11 +6,17 @@ import {
   updateHabit,
 } from '../db/indexedDB'
 import type { HabitType } from '../types'
+import { calculateStreak } from '../utils/streak'
 
 export async function getAllHabits() {
   try {
     const res = await getHabits()
-    return res as HabitType[]
+    const habits = res as HabitType[]
+
+    return habits.map((habit) => ({
+      ...habit,
+      streak: calculateStreak(habit.completedDates),
+    }))
   } catch (err) {
     console.error('DB failed fetching habits: ', err)
     throw err
@@ -23,6 +29,7 @@ export async function createHabit(habit: { name: string }) {
       ...habit,
       createdAt: new Date(),
       completedDates: [],
+      streak: 0,
     })
   } catch (err) {
     console.error('DB failed creating habit: ', err)

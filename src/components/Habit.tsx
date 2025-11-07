@@ -27,7 +27,9 @@ export const Habit: React.FC<Props> = ({ habit, onComplete }) => {
       <h3>{habit.name}</h3>
       <div className='streak'>
         <p>🔥</p>
-        <p>6 days</p>
+        <p>
+          {habit.streak} day{habit.streak === 1 ? '' : 's'}
+        </p>
       </div>
     </div>
   )

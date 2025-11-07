@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
-import type { Habit } from '../types'
+import type { HabitType } from '../types'
 import { createHabit, getAllHabits } from '../services/habits'
 
 export function useHabits() {
-  const [habits, setHabits] = useState<Habit[]>([])
+  const [habits, setHabits] = useState<HabitType[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string>('')
 
   async function fetchAllHabits() {
     const res = await getAllHabits()
-    setHabits(res as Habit[])
+    setHabits(res as HabitType[])
   }
 
   useEffect(() => {

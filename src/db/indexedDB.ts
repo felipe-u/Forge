@@ -1,4 +1,4 @@
-import type { Habit } from '../types'
+import type { HabitType } from '../types'
 
 const DB_NAME = 'ForgeDB'
 const DB_VERSION = 1
@@ -30,7 +30,7 @@ export function initDB(): Promise<IDBDatabase> {
   })
 }
 
-export async function addHabit(habit: Omit<Habit, 'id'>) {
+export async function addHabit(habit: Omit<HabitType, 'id'>) {
   const database = await initDB()
 
   return new Promise((resolve, reject) => {

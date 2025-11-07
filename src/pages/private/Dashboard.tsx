@@ -1,14 +1,17 @@
 import { Habit } from '../../components/Habit'
+import { useHabits } from '../../hooks/useHabits'
 import '../../styles/Dashboard.css'
 
 export default function Dashboard() {
+  const { habits } = useHabits()
+
   return (
     <section>
       <h2>Seize the day</h2>
       <div className='habits-container'>
-        <Habit />
-        <Habit />
-        <Habit />
+        {habits.map((habit) => (
+          <Habit key={habit.id} habit={habit} />
+        ))}
       </div>
     </section>
   )

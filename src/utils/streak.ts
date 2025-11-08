@@ -3,15 +3,20 @@ export function calculateStreak(completedDates: string[]): number {
   let streak = 0
   const current = new Date()
 
-  while (true) {
-    const key = current.toISOString().slice(0, 10)
+  const today = current.toISOString().slice(0, 10)
+  const startDate = dates.has(today)
+    ? new Date(current)
+    : new Date(current.setDate(current.getDate() - 1))
 
+  while (true) {
+    const key = startDate.toISOString().slice(0, 10)
     if (dates.has(key)) {
       streak++
-      current.setDate(current.getDate() - 1)
+      startDate.setDate(startDate.getDate() - 1)
     } else {
       break
     }
   }
+
   return streak
 }

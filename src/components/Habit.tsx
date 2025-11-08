@@ -15,6 +15,7 @@ export const Habit: React.FC<Props> = ({ habit, onComplete }) => {
   }, [habit])
 
   const onCompleteHabit = () => {
+    if (completed) return
     setCompleted(true)
     onComplete(habit.id as number)
   }

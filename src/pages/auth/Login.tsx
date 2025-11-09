@@ -1,9 +1,19 @@
 import { useNavigate } from 'react-router'
 import { useAuth } from '../../hooks/useAuth'
+import { useEffect, useState } from 'react'
 
 export default function Login() {
   const { login } = useAuth()
   const navigate = useNavigate()
+  const [showLogin, setShowLogin] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLogin(true)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleLogin = () => {
     login()
@@ -11,21 +21,28 @@ export default function Login() {
   }
 
   return (
-    <div className='auth-container'>
-      <h1>Forge</h1>
-      <form>
-        <div className='input-container'>
-          <label htmlFor='email'>Email</label>
-          <input type='email' name='email' id='email' />
+    <>
+      {showLogin && (
+        <div className='auth-container fade-in'>
+          <h1>Forge</h1>
+          <form>
+            <div className='input-container'>
+              <input type='email' name='email' id='email' placeholder='Email' />
+            </div>
+            <div className='input-container'>
+              <input
+                type='password'
+                name='password'
+                id='password'
+                placeholder='Password'
+              />
+            </div>
+            <button type='button' onClick={handleLogin}>
+              Login
+            </button>
+          </form>
         </div>
-        <div className='input-container'>
-          <label htmlFor='password'>Password</label>
-          <input type='password' name='password' id='password' />
-        </div>
-        <button type='button' onClick={handleLogin}>
-          Login
-        </button>
-      </form>
-    </div>
+      )}
+    </>
   )
 }

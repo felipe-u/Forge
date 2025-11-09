@@ -1,3 +1,17 @@
+:root {
+  --color-50: #fefae7;
+  --color-100: #fcf2bb;
+  --color-200: #faea8f;
+  --color-300: #f8e163;
+  --color-400: #f6d937;
+  --color-500: #f2d10c;
+  --color-600: #c8ab09;
+  --color-700: #9c8607;
+  --color-800: #706005;
+  --color-900: #443a03;
+  --color-950: #181501;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

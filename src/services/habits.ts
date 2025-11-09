@@ -55,6 +55,18 @@ export async function deleteHabit(id: number) {
   }
 }
 
+export async function updateTitle(id: number, newTitle: string) {
+  try {
+    const habit = await getSingleHabit(id)
+    if (!habit) return
+
+    habit.name = newTitle
+    await updateHabit(habit)
+  } catch (err) {
+    console.error(`DB failed updating habit with id: ${id}`, err)
+  }
+}
+
 export async function completeHabit(id: number) {
   try {
     const habit = await getSingleHabit(id)

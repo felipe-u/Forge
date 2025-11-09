@@ -29,6 +29,10 @@
   padding: 15px;
 }
 
+.habit-name {
+  display: inline;
+}
+
 .habit-details-container button {
   margin: 0 auto;
   cursor: pointer;

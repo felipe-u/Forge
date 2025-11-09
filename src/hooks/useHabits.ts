@@ -6,6 +6,7 @@ import {
   deleteHabit,
   getAllHabits,
   getSingleHabit,
+  updateTitle,
 } from '../services/habits'
 
 export function useHabits() {
@@ -63,15 +64,19 @@ export function useHabits() {
     }
   }
 
-  async function complete(id: number) {
+  async function update(id: number, newTitle?: string) {
     try {
       setLoading(true)
-      await completeHabit(id)
+      if (newTitle) {
+        await updateTitle(id, newTitle)
+      } else {
+        await completeHabit(id)
+      }
       await fetchAllHabits()
     } catch {
-      setError(`Error deleting habit with id: ${id}`)
+      setError(`Error updating habit with id: ${id}`)
     }
   }
 
-  return { habits, add, get, remove, complete, error, loading }
+  return { habits, add, get, remove, update, error, loading }
 }

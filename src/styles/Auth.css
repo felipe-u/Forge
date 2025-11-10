@@ -59,9 +59,10 @@
 
 .auth-container form button {
   font-size: 1.1em;
+  font-weight: bold;
   margin-top: 25px;
   width: 250px;
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
   background-color: var(--color-500);
   border: none;

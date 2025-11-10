@@ -61,6 +61,7 @@ nav > button {
 }
 
 nav > a:hover,
+nav > a.active,
 nav > button:hover {
   background-color: #383838;
 }
@@ -72,7 +73,6 @@ nav > button {
   cursor: pointer;
   margin-top: auto;
 }
-
 
 section {
   display: flex;

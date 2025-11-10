@@ -1,0 +1,26 @@
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(1px);
+  display: grid;
+  place-items: center;
+}
+
+.loader {
+  width: 90px;
+  height: 14px;
+  --c: 50%, var(--color-500) 90deg, #0000 0;
+  background: conic-gradient(from 45deg at calc(100% - 7px) var(--c)),
+    conic-gradient(from -135deg at 7px var(--c));
+  background-position: calc(100% / 3) 0;
+  background-size: calc(100% / 4) 100%;
+  animation: l6 0.5s infinite linear;
+}
+@keyframes l6 {
+  100% {
+    background-position: 0 0;
+  }
+}

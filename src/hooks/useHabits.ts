@@ -61,6 +61,8 @@ export function useHabits() {
       await deleteHabit(Number(id))
     } catch {
       setError(`Error deleting habit with id: ${id}`)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -75,6 +77,8 @@ export function useHabits() {
       await fetchAllHabits()
     } catch {
       setError(`Error updating habit with id: ${id}`)
+    } finally {
+      setLoading(false)
     }
   }
 

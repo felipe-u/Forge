@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router'
 import '../../styles/Habits.css'
 import { useHabits } from '../../hooks/useHabits'
+import { Loader } from '../../components/Loader'
 
 export default function Habits() {
   const navigate = useNavigate()
-  const { habits, add } = useHabits()
+  const { habits, add, loading } = useHabits()
 
   const openHabitDetails = (id: number | undefined) => {
     navigate(`/habits/${id}`)
@@ -17,19 +18,30 @@ export default function Habits() {
   }
 
   return (
-    <section>
-      <div className='add-btn-container'>
-        <button onClick={onCreateHabit}>+</button>
-      </div>
-      <table className='habits-table'>
-        <tbody>
-          {habits.map((habit) => (
-            <tr key={habit.id} onClick={() => openHabitDetails(habit.id)}>
-              <td>{habit.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
+    <>
+      <section>
+        {habits.length > 0 ? (
+          <>
+            <div className='add-btn-container'>
+              <button onClick={onCreateHabit} disabled={loading}>
+                +
+              </button>
+            </div>
+            <table className='habits-table'>
+              <tbody>
+                {habits.map((habit) => (
+                  <tr key={habit.id} onClick={() => openHabitDetails(habit.id)}>
+                    <td>{habit.name}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        ) : (
+          <p onClick={onCreateHabit}>Add an habit</p>
+        )}
+      </section>
+      {loading && <Loader />}
+    </>
   )
 }

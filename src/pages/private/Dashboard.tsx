@@ -6,7 +6,7 @@ export default function Dashboard() {
   const { habits, update } = useHabits()
 
   return (
-    <section>
+    <section className='dashboard-section'>
       <h2>Seize the day</h2>
       <div className='habits-container'>
         {habits.map((habit) => (

@@ -1,24 +1,45 @@
+.dashboard-section {
+  margin: 50px auto;
+  border-radius: 10px;
+  background-color: #1a1a17;
+  width: 50%;
+  max-width: 430px;
+}
+
+.dashboard-section h2 {
+  font-size: 2em;
+}
+
 .habits-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .habit-container {
-  border: 1px solid white;
+  border: 1px solid #aaa;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 200px;
+  width: 250px;
   padding: 0 20px;
   height: 50px;
   border-radius: 50px;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .habit-container.completed {
-  opacity: 0.5;
-  cursor: auto;
+  opacity: 0.2;
+  cursor: default;
+}
+
+.habit-container:hover {
+  background-color: #c08a0b14;
+}
+
+.habit-container.completed:hover {
+  background-color: unset;
 }
 
 .streak {

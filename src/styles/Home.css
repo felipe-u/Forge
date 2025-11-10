@@ -20,6 +20,12 @@ header {
   place-items: center;
 }
 
+.app-main {
+  border: 1px solid transparent;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .app-layout {
   position: relative;
 }

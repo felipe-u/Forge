@@ -70,32 +70,56 @@ export default function Habit() {
       <div className='habit-details-container'>
         {habit ? (
           <>
-            <p>
-              <strong>Habit: </strong>
-              <div className='habit-name'>
-                {editName.show ? (
-                  <input
-                    ref={inputRef}
-                    onKeyDown={onEditName}
-                    value={editName.name}
-                    onChange={(e) =>
-                      setEditName((prev) => ({ ...prev, name: e.target.value }))
-                    }
-                  />
-                ) : (
-                  <span onDoubleClick={toggleEditName}>{habit.name}</span>
-                )}
-              </div>
-            </p>
-            <p>
-              <strong>Streak: </strong>
-              {habit.streak} {`day${habit.streak === 1 ? '' : 's'}`}
-            </p>
-            <p>
-              <strong>Created at: </strong>
-              {habit.createdAt.toLocaleDateString()}
-            </p>
-            <button onClick={() => onDelete(id)}>Delete</button>
+            <table className='habit-details-table'>
+              <tbody>
+                <tr>
+                  <td style={{ borderRadius: '10px 0 0 0' }}>
+                    <strong>Habit:</strong>
+                  </td>
+                  <td style={{ padding: '5px' }}>
+                    <div className='habit-name' onDoubleClick={toggleEditName}>
+                      {editName.show ? (
+                        <input
+                          ref={inputRef}
+                          onKeyDown={onEditName}
+                          value={editName.name}
+                          onChange={(e) =>
+                            setEditName((prev) => ({
+                              ...prev,
+                              name: e.target.value,
+                            }))
+                          }
+                        />
+                      ) : (
+                        <p>{habit.name}</p>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Streak:</strong>
+                  </td>
+                  <td>
+                    {habit.streak} {`day${habit.streak === 1 ? '' : 's'}`}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style={{ borderRadius: '0 0 0 10px', border: 'none' }}>
+                    <strong>Created at:</strong>
+                  </td>
+                  <td style={{ border: 'none' }}>
+                    {habit.createdAt.toLocaleDateString()}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <button className='delete-btn' onClick={() => onDelete(id)}>
+              Delete
+            </button>
           </>
         ) : (
           <>
@@ -103,7 +127,7 @@ export default function Habit() {
           </>
         )}
         <button className='close-btn' onClick={goBack}>
-          x
+          &times;
         </button>
       </div>
     </section>

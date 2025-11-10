@@ -18,11 +18,11 @@ export default function Habits() {
 
   return (
     <section>
+      <div className='add-btn-container'>
+        <button onClick={onCreateHabit}>+</button>
+      </div>
       <table className='habits-table'>
         <tbody>
-          <tr onClick={onCreateHabit}>
-            <td>+</td>
-          </tr>
           {habits.map((habit) => (
             <tr key={habit.id} onClick={() => openHabitDetails(habit.id)}>
               <td>{habit.name}</td>

@@ -1,7 +1,23 @@
 header {
-  text-align: center;
-  padding: 15px 0;
-  background-color: darkslategray;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 15px;
+  background-color: var(--color-500);
+  color: black;
+  border-bottom: 2px solid #222;
+  width: 100%;
+  position: relative;
+}
+
+.menu-btn button {
+  border: none;
+  border-radius: 5px;
+  padding: 2px;
+  cursor: pointer;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
 }
 
 .app-layout {
@@ -13,8 +29,8 @@ header {
   top: 0;
   display: flex;
   align-items: center;
-  transform: translateX(-60px);
-  transition: 0.3s ease;
+  transform: translateX(-250px);
+  transition: 0.5s ease;
 }
 
 .nav-container.opened {
@@ -24,14 +40,39 @@ header {
 nav {
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
-  gap: 10px;
-  padding: 10px;
+  background-color: #303030;
+  width: 250px;
+  height: calc(100vh - 75.6px);
+  padding: 5px 0;
+  gap: 6px;
 }
 
-.menu-btn {
-  transform: rotate(-90deg);
+nav > a,
+nav > button {
+  color: #eee;
+  text-align: center;
+  font-size: 1.3em;
+  padding: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease;
+  margin: 0 5px;
+  border-radius: 5px;
 }
+
+nav > a:hover,
+nav > button:hover {
+  background-color: #383838;
+}
+
+nav > button {
+  font-size: 1.1em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: auto;
+}
+
 
 section {
   display: flex;

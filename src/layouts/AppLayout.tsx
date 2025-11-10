@@ -2,6 +2,7 @@ import { NavLink, Outlet } from 'react-router'
 import { useAuth } from '../hooks/useAuth'
 import { useState } from 'react'
 import '../styles/Home.css'
+import { MenuIcon } from '../components/Icons'
 
 export default function AppLayout() {
   const { logout } = useAuth()
@@ -14,6 +15,11 @@ export default function AppLayout() {
   return (
     <>
       <header>
+        <div className='menu-btn'>
+          <button onClick={() => setToggleMenu(!toggleMenu)}>
+            <MenuIcon />
+          </button>
+        </div>
         <h1>Forge</h1>
       </header>
       <div className='app-layout'>
@@ -25,15 +31,8 @@ export default function AppLayout() {
             <NavLink to='/habits' onClick={hideSideMenu}>
               Habits
             </NavLink>
-            <hr />
-            <button onClick={logout}>logout</button>
+            <button onClick={logout}>Logout</button>
           </nav>
-          <button
-            className='menu-btn'
-            onClick={() => setToggleMenu(!toggleMenu)}
-          >
-            Menu
-          </button>
         </div>
 
         <main className='app-main'>

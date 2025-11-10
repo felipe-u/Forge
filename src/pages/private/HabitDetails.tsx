@@ -40,7 +40,8 @@ export default function Habit() {
 
   const onDelete = async (id: string | undefined) => {
     if (confirm('Are you sure?')) {
-      await remove(id).then(() => navigate('/habits'))
+      await remove(id)
+      navigate('/habits')
     }
   }
 

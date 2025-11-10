@@ -16,8 +16,8 @@ export const Habit: React.FC<Props> = ({ habit, onComplete }) => {
 
   const onCompleteHabit = async () => {
     if (completed) return
-    onComplete(habit.id as number)
-    await setCompleted(true)
+    await onComplete(habit.id as number)
+    setCompleted(true)
   }
 
   return (

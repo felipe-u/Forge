@@ -10,10 +10,10 @@ export default function Habits() {
     navigate(`/habits/${id}`)
   }
 
-  const onCreateHabit = () => {
+  const onCreateHabit = async () => {
     const newHabitName = prompt('New habit')
     if (!newHabitName) return
-    add(newHabitName)
+    await add(newHabitName)
   }
 
   return (

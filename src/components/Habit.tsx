@@ -14,10 +14,10 @@ export const Habit: React.FC<Props> = ({ habit, onComplete }) => {
     if (habit.completedDates.includes(today)) setCompleted(true)
   }, [habit])
 
-  const onCompleteHabit = () => {
+  const onCompleteHabit = async () => {
     if (completed) return
     onComplete(habit.id as number)
-    setCompleted(true)
+    await setCompleted(true)
   }
 
   return (

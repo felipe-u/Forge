@@ -38,9 +38,9 @@ export default function Habit() {
     setEditName({ name: habit.name, show: false })
   }
 
-  const onDelete = (id: string | undefined) => {
+  const onDelete = async (id: string | undefined) => {
     if (confirm('Are you sure?')) {
-      remove(id).then(() => navigate('/habits'))
+      await remove(id).then(() => navigate('/habits'))
     }
   }
 

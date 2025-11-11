@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router'
 import '../../styles/Habits.css'
 import { useHabits } from '../../hooks/useHabits'
 import { Loader } from '../../components/Loader'
+import { AddIcon } from '../../components/Icons'
 
 export default function Habits() {
   const navigate = useNavigate()
@@ -38,7 +39,9 @@ export default function Habits() {
             </table>
           </>
         ) : (
-          <p onClick={onCreateHabit}>Add an habit</p>
+          <button className='new-habit-btn' onClick={onCreateHabit}>
+            <span><AddIcon /></span>New Habit
+          </button>
         )}
       </section>
       {loading && <Loader />}

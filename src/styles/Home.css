@@ -8,6 +8,7 @@ header {
   border-bottom: 2px solid #222;
   width: 100%;
   position: fixed;
+  top: 0;
   z-index: 10;
 }
 
@@ -19,10 +20,6 @@ header {
   background-color: transparent;
   display: grid;
   place-items: center;
-}
-
-.app-main {
-  border: 1px solid transparent;
 }
 
 .app-layout {

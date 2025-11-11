@@ -4,9 +4,10 @@ import type { HabitType } from '../types'
 interface Props {
   habit: HabitType
   onComplete: (id: number) => Promise<void>
+  triggerSpark: () => void
 }
 
-export const Habit: React.FC<Props> = ({ habit, onComplete }) => {
+export const Habit: React.FC<Props> = ({ habit, onComplete, triggerSpark }) => {
   const [completed, setCompleted] = useState(false)
 
   useEffect(() => {
@@ -18,6 +19,7 @@ export const Habit: React.FC<Props> = ({ habit, onComplete }) => {
     if (completed) return
     await onComplete(habit.id as number)
     setCompleted(true)
+    triggerSpark()
   }
 
   return (

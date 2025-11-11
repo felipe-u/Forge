@@ -4,6 +4,8 @@
   background-color: #1a1a17;
   width: 50%;
   max-width: 430px;
+  position: relative;
+  z-index: 5;
 }
 
 .dashboard-section h2 {
@@ -47,4 +49,22 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.sparks-wrapper {
+  position: fixed;
+  bottom: -95px;
+  left: 20px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.sparks-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
 }

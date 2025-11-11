@@ -1,3 +1,7 @@
+.habits-section {
+  margin: 124px auto;
+}
+
 .add-btn-container {
   width: 80%;
   max-width: 250px;
@@ -89,7 +93,7 @@
   height: 33px;
   display: grid;
   place-items: center;
-  cursor: text;
+  cursor: url('/pencil.svg'), auto;
 }
 
 .habit-name input {

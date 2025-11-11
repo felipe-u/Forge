@@ -12,7 +12,6 @@ import {
 export function useHabits() {
   const [habits, setHabits] = useState<HabitType[]>([])
   const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string>('')
 
   async function fetchAllHabits() {
     const res = await getAllHabits()
@@ -25,7 +24,7 @@ export function useHabits() {
         setLoading(true)
         await fetchAllHabits()
       } catch {
-        setError('Error fetching habits')
+        throw new Error('Error fetching habits')
       } finally {
         setLoading(false)
       }
@@ -38,7 +37,7 @@ export function useHabits() {
       await createHabit({ name })
       await fetchAllHabits()
     } catch {
-      setError('Error creating habit')
+      throw new Error('Error creating habit')
     } finally {
       setLoading(false)
     }
@@ -49,7 +48,7 @@ export function useHabits() {
       setLoading(true)
       return await getSingleHabit(Number(id))
     } catch {
-      setError(`Error getting habit with id: ${id}`)
+      throw new Error(`Error getting habit with id: ${id}`)
     } finally {
       setLoading(false)
     }
@@ -60,7 +59,7 @@ export function useHabits() {
       setLoading(true)
       await deleteHabit(Number(id))
     } catch {
-      setError(`Error deleting habit with id: ${id}`)
+      throw new Error(`Error deleting habit with id: ${id}`)
     } finally {
       setLoading(false)
     }
@@ -76,11 +75,11 @@ export function useHabits() {
       }
       await fetchAllHabits()
     } catch {
-      setError(`Error updating habit with id: ${id}`)
+      throw new Error(`Error updating habit with id: ${id}`)
     } finally {
       setLoading(false)
     }
   }
 
-  return { habits, add, get, remove, update, error, loading }
+  return { habits, add, get, remove, update, loading }
 }

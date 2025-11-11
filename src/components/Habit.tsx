@@ -18,8 +18,8 @@ export const Habit: React.FC<Props> = ({ habit, onComplete, triggerSpark }) => {
   const onCompleteHabit = async () => {
     if (completed) return
     await onComplete(habit.id as number)
-    setCompleted(true)
     triggerSpark()
+    setCompleted(true)
   }
 
   return (

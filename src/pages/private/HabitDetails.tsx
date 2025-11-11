@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router'
 import type { HabitType } from '../../types'
 import { useHabits } from '../../hooks/useHabits'
 import { calculateStreak } from '../../utils/streak'
+import { toast } from 'sonner'
 
 interface EditName {
   name: string
@@ -38,10 +39,30 @@ export default function Habit() {
     setEditName({ name: habit.name, show: false })
   }
 
+  const handleDelete = (id: string | undefined) => {
+    toast('Are you sure you want to delete it?', {
+      id: '001',
+      toasterId: 'confirm',
+      duration: Infinity,
+      action: {
+        label: 'Confirm',
+        onClick: () => onDelete(id),
+      },
+      cancel: {
+        label: 'Cancel',
+        onClick: () => {},
+      },
+    })
+  }
+
   const onDelete = async (id: string | undefined) => {
-    if (confirm('Are you sure?')) {
+    try {
       await remove(id)
+      toast.success('Habit deleted successfully', { toasterId: 'global' })
       navigate('/habits')
+    } catch (err) {
+      if (err instanceof Error)
+        toast.error(err.message, { toasterId: 'global' })
     }
   }
 
@@ -51,8 +72,14 @@ export default function Habit() {
     if (event.key !== 'Enter') return
 
     if (editName.name !== habit?.name) {
-      await update(habit?.id as number, editName.name)
-      setHabit((prev) => (prev ? { ...prev, name: editName.name } : prev))
+      try {
+        await update(habit?.id as number, editName.name)
+        toast.success('Habit updated successfully', { toasterId: 'global' })
+        setHabit((prev) => (prev ? { ...prev, name: editName.name } : prev))
+      } catch (err) {
+        if (err instanceof Error)
+          toast.error(err.message, { toasterId: 'global' })
+      }
     }
 
     setEditName((prev) => ({ ...prev, show: false }))
@@ -67,7 +94,7 @@ export default function Habit() {
   }
 
   return (
-    <section>
+    <section className='habits-section'>
       <div className='habit-details-container'>
         {habit ? (
           <>
@@ -78,7 +105,7 @@ export default function Habit() {
                     <strong>Habit:</strong>
                   </td>
                   <td style={{ padding: '5px' }}>
-                    <div className='habit-name' onDoubleClick={toggleEditName}>
+                    <div className='habit-name' onClick={toggleEditName}>
                       {editName.show ? (
                         <input
                           ref={inputRef}
@@ -118,7 +145,7 @@ export default function Habit() {
               </tbody>
             </table>
 
-            <button className='delete-btn' onClick={() => onDelete(id)}>
+            <button className='delete-btn' onClick={() => handleDelete(id)}>
               Delete
             </button>
           </>

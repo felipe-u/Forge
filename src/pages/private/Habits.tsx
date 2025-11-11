@@ -3,6 +3,7 @@ import '../../styles/Habits.css'
 import { useHabits } from '../../hooks/useHabits'
 import { Loader } from '../../components/Loader'
 import { AddIcon } from '../../components/Icons'
+import { toast } from 'sonner'
 
 export default function Habits() {
   const navigate = useNavigate()
@@ -15,12 +16,19 @@ export default function Habits() {
   const onCreateHabit = async () => {
     const newHabitName = prompt('New habit')
     if (!newHabitName) return
-    await add(newHabitName)
+
+    try {
+      await add(newHabitName)
+      toast.success('New habit created', { toasterId: 'global' })
+    } catch (err) {
+      if (err instanceof Error)
+        toast.error(err.message, { toasterId: 'global' })
+    }
   }
 
   return (
     <>
-      <section>
+      <section className='habits-section'>
         {habits.length > 0 ? (
           <>
             <div className='add-btn-container'>
@@ -40,7 +48,10 @@ export default function Habits() {
           </>
         ) : (
           <button className='new-habit-btn' onClick={onCreateHabit}>
-            <span><AddIcon /></span>New Habit
+            <span>
+              <AddIcon />
+            </span>
+            New Habit
           </button>
         )}
       </section>

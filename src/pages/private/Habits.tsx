@@ -3,27 +3,24 @@ import '../../styles/Habits.css'
 import { useHabits } from '../../hooks/useHabits'
 import { Loader } from '../../components/Loader'
 import { AddIcon } from '../../components/Icons'
-import { toast } from 'sonner'
+import { useState } from 'react'
+import { NewHabit } from '../../components/NewHabit'
 
 export default function Habits() {
   const navigate = useNavigate()
-  const { habits, add, loading } = useHabits()
+  const { habits, loading } = useHabits()
+  const [showModal, setShowModal] = useState(false)
 
   const openHabitDetails = (id: number | undefined) => {
     navigate(`/habits/${id}`)
   }
 
-  const onCreateHabit = async () => {
-    const newHabitName = prompt('New habit')
-    if (!newHabitName) return
+  const openModal = () => {
+    setShowModal(true)
+  }
 
-    try {
-      await add(newHabitName)
-      toast.success('New habit created', { toasterId: 'global' })
-    } catch (err) {
-      if (err instanceof Error)
-        toast.error(err.message, { toasterId: 'global' })
-    }
+  const closeModal = () => {
+    setShowModal(false)
   }
 
   return (
@@ -32,7 +29,7 @@ export default function Habits() {
         {habits.length > 0 ? (
           <>
             <div className='add-btn-container'>
-              <button onClick={onCreateHabit} disabled={loading}>
+              <button onClick={openModal} disabled={loading}>
                 +
               </button>
             </div>
@@ -47,7 +44,7 @@ export default function Habits() {
             </table>
           </>
         ) : (
-          <button className='new-habit-btn' onClick={onCreateHabit}>
+          <button className='new-habit-btn' onClick={openModal}>
             <span>
               <AddIcon />
             </span>
@@ -56,6 +53,7 @@ export default function Habits() {
         )}
       </section>
       {loading && <Loader />}
+      {showModal && <NewHabit closeModal={closeModal} />}
     </>
   )
 }

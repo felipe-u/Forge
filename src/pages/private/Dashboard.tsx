@@ -4,17 +4,22 @@ import { AddIcon } from '../../components/Icons'
 import { Loader } from '../../components/Loader'
 import { useHabits } from '../../hooks/useHabits'
 import '../../styles/Dashboard.css'
+import { NewHabit } from '../../components/NewHabit'
 
 export default function Dashboard() {
-  const { habits, add, update, loading } = useHabits()
+  const { habits, update, loading } = useHabits()
+  const [showModal, setShowModal] = useState(false)
   const [spark, setSpark] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  const onCreateHabit = async () => {
-    const newHabitName = prompt('New habit')
-    if (!newHabitName) return
-    await add(newHabitName)
+  const openModal = () => {
+    setShowModal(true)
   }
+
+  const closeModal = () => {
+    setShowModal(false)
+  }
+
 
   useEffect(() => {
     if (!spark) return
@@ -54,7 +59,7 @@ export default function Dashboard() {
             </div>
           </>
         ) : (
-          <button className='new-habit-btn' onClick={onCreateHabit}>
+          <button className='new-habit-btn' onClick={openModal}>
             <span>
               <AddIcon />
             </span>
@@ -62,6 +67,7 @@ export default function Dashboard() {
           </button>
         )}
       </section>
+      {showModal && <NewHabit closeModal={closeModal} />}
       {loading && <Loader />}
       {spark && (
         <div className='sparks-wrapper'>

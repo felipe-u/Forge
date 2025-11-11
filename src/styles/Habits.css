@@ -140,6 +140,7 @@
   border: none;
   background-color: #272722;
   color: #777;
+  cursor: pointer;
 }
 
 .close-btn:hover {
@@ -164,4 +165,74 @@
 
 .new-habit-btn:hover {
   background-color: var(--color-700);
+}
+
+.new-habit-modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(3px);
+}
+
+.inner-modal {
+  text-align: center;
+  border: 1px solid #333;
+  border-radius: 10px;
+  width: 350px;
+  background-color: #1a1a17;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 0 25px;
+  position: relative;
+}
+
+.inner-modal h2 {
+  font-size: 2em;
+}
+
+.input-modal-container {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 50px;
+}
+
+.input-modal-container input {
+  text-align: center;
+  font-size: 1.2em;
+  padding: 5px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.081);
+  color: whitesmoke;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.input-modal-container input:focus {
+  outline: none;
+}
+
+.input-modal-container button {
+  font-size: 1em;
+  font-weight: bold;
+  padding: 7px;
+  cursor: pointer;
+  background-color: var(--color-500);
+  transition: 0.3s ease;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.input-modal-container button:hover {
+  background-color: grey;
 }

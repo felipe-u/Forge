@@ -66,3 +66,37 @@ export const InfoIcon = () => {
     </svg>
   )
 }
+
+export const PrevIcon = () => {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='32'
+      height='32'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='#8899a4'
+      strokeWidth='2'
+      strokeLinecap='round'
+    >
+      <path d='M15 18l-6-6 6-6'></path>
+    </svg>
+  )
+}
+
+export const NextIcon = () => {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='32'
+      height='32'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='#8899a4'
+      strokeWidth='2'
+      strokeLinecap='round'
+    >
+      <path d='M9 18l6-6-6-6'></path>
+    </svg>
+  )
+}

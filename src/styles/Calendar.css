@@ -23,16 +23,38 @@
   margin-top: 30px;
 }
 
+.month-selector {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #555;
+  padding: 5px;
+}
+
+.month {
+  text-align: center;
+}
+
+.prev-month, .next-month {
+  height: 32px
+}
+
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
 .day-cell {
-  border: 1px solid white;
+  border: 1px solid #555;
   width: 50px;
   height: 50px;
   padding: 5px;
+}
+
+.day-cell.blank {
+  background-color: transparent;
+  border: none;
 }
 
 .day-cell.completed {

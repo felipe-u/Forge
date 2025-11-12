@@ -32,3 +32,8 @@ export function getCompletedDays(
 
   return completedDays
 }
+
+export function getFirstDayOfMonth(year: number, month: number) {
+  const date = new Date(year, month, 1)
+  return date.getDay()
+}

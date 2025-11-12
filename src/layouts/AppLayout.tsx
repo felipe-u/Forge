@@ -25,11 +25,14 @@ export default function AppLayout() {
       <div className='app-layout'>
         <div className={`nav-container ${toggleMenu ? 'opened' : ''}`}>
           <nav>
-            <NavLink to='/' onClick={hideSideMenu}>
+            <NavLink to='/dashboard' onClick={hideSideMenu}>
               Home
             </NavLink>
             <NavLink to='/habits' onClick={hideSideMenu}>
               Habits
+            </NavLink>
+            <NavLink to='/calendar' onClick={hideSideMenu}>
+              Calendar
             </NavLink>
             <button onClick={logout}>
               Logout{' '}

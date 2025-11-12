@@ -1,0 +1,40 @@
+.calendar-section {
+  margin: 124px auto;
+  width: max-content;
+}
+
+.habit-selector {
+  width: 100%;
+}
+
+.habit-selector select {
+  font-size: 0.9em;
+  color: #bbb;
+  background-color: #212121;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 8px 10px;
+  width: 200px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calendar-container {
+  margin-top: 30px;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day-cell {
+  border: 1px solid white;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
+.day-cell.completed {
+  background-color: var(--color-800);
+}

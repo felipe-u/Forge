@@ -6,6 +6,7 @@ import AuthLayout from '../layouts/AuthLayout'
 import Login from '../pages/auth/Login'
 import PrivateRoutes from './PrivateRoutes'
 import Habit from '../pages/private/HabitDetails'
+import Calendar from '../pages/private/Calendar'
 
 export default function AppRoutes() {
   return (
@@ -20,6 +21,7 @@ export default function AppRoutes() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/habits' element={<Habits />} />
           <Route path='/habits/:id' element={<Habit />} />
+          <Route path='/calendar' element={<Calendar />} />
         </Route>
       </Route>
     </Routes>

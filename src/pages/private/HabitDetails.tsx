@@ -4,6 +4,7 @@ import type { HabitType } from '../../types'
 import { useHabits } from '../../hooks/useHabits'
 import { calculateStreak } from '../../utils/streak'
 import { toast } from 'sonner'
+import { InfoIcon } from '../../components/Icons'
 
 interface EditName {
   name: string
@@ -14,6 +15,7 @@ export default function Habit() {
   const navigate = useNavigate()
   const [habit, setHabit] = useState<HabitType>()
   const [editName, setEditName] = useState<EditName>({ name: '', show: false })
+  const [showHelper, setShowHelper] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const { id } = useParams()
   const { get, remove, update } = useHabits()
@@ -38,6 +40,14 @@ export default function Habit() {
     setHabit(habit as HabitType)
     setEditName({ name: habit.name, show: false })
   }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowHelper(true)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleDelete = (id: string | undefined) => {
     toast('Are you sure you want to delete it?', {
@@ -158,6 +168,22 @@ export default function Habit() {
           &times;
         </button>
       </div>
+
+      {showHelper && (
+        <div className='helper'>
+          <div className='icon'>
+            <InfoIcon />
+          </div>
+          <div className='helper-text'>
+            <p>
+              You can edit the habit name by <strong>clicking</strong> on it
+            </p>
+            <p>
+              If you want to save the new name, press <strong>Enter</strong>
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

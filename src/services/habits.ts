@@ -6,6 +6,7 @@ import {
   updateHabit,
 } from '../db/indexedDB'
 import type { HabitType } from '../types'
+import { getLocalDateString, getStartOfLocalDay } from '../utils/date'
 import { calculateStreak } from '../utils/streak'
 
 export async function getAllHabits() {
@@ -27,7 +28,7 @@ export async function createHabit(habit: { name: string }) {
   try {
     return await addHabit({
       ...habit,
-      createdAt: new Date(),
+      createdAt: getStartOfLocalDay(),
       completedDates: [],
       streak: 0,
     })
@@ -70,9 +71,9 @@ export async function updateTitle(id: number, newTitle: string) {
 export async function completeHabit(id: number) {
   try {
     const habit = await getSingleHabit(id)
-    const today = new Date().toISOString().slice(0, 10)
-
     if (!habit) return
+
+    const today = getLocalDateString()
 
     if (!habit.completedDates.includes(today)) {
       habit.completedDates.push(today)

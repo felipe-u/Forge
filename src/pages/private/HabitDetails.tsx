@@ -149,7 +149,7 @@ export default function Habit() {
                     <strong>Created at:</strong>
                   </td>
                   <td style={{ border: 'none' }}>
-                    {habit.createdAt.toLocaleDateString()}
+                    {new Date(habit.createdAt).toLocaleDateString()}
                   </td>
                 </tr>
               </tbody>

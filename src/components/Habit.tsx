@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { HabitType } from '../types'
+import { getLocalDateString } from '../utils/date'
 
 interface Props {
   habit: HabitType
@@ -11,7 +12,7 @@ export const Habit: React.FC<Props> = ({ habit, onComplete, triggerSpark }) => {
   const [completed, setCompleted] = useState(false)
 
   useEffect(() => {
-    const today = new Date().toISOString().slice(0, 10)
+    const today = getLocalDateString()
     if (habit.completedDates.includes(today)) setCompleted(true)
   }, [habit])
 

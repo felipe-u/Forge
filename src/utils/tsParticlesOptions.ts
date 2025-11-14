@@ -1,4 +1,6 @@
-export const particleBgOptions = {
+import type { ISourceOptions } from '@tsparticles/engine'
+
+export const particlesBgOptions: ISourceOptions = {
   background: { color: { value: 'transparent' } },
   fpsLimit: 60,
   fullScreen: { enable: true, zIndex: 0 },
@@ -9,7 +11,7 @@ export const particleBgOptions = {
       animation: {
         enable: true,
         speed: 0.8,
-        startValue: 'max' as const,
+        startValue: 'max',
         sync: false,
       },
     },
@@ -18,7 +20,7 @@ export const particleBgOptions = {
       animation: {
         enable: true,
         speed: 1.5,
-        startValue: 'min' as const,
+        startValue: 'min',
         sync: false,
       },
     },
@@ -26,7 +28,7 @@ export const particleBgOptions = {
       enable: true,
       random: true,
       straight: false,
-      outModes: 'out' as const,
+      outModes: 'out',
       gravity: { enable: true, acceleration: -0.3 },
     },
     rotate: {
@@ -66,4 +68,45 @@ export const particleBgOptions = {
       },
     },
   ],
+}
+
+export const particlesSparksOptions: ISourceOptions = {
+  background: { color: 'transparent' },
+  particles: {
+    opacity: {
+      value: { min: 0, max: 1 },
+      animation: {
+        enable: true,
+        speed: { min: 5, max: 10 },
+        sync: false,
+        startValue: 'max',
+        destroy: 'min',
+      },
+    },
+    number: { value: 0 },
+    color: { value: '#FFD700' },
+    shape: { type: 'circle' },
+    size: { value: { min: 1, max: 3 } },
+    move: {
+      enable: true,
+      speed: 20,
+      direction: 'none',
+      outModes: 'destroy',
+      random: true,
+    },
+
+    life: { duration: { sync: false, value: 5 }, count: 1 },
+  },
+
+  interactivity: { detectsOn: 'canvas' },
+  emitters: [
+    {
+      direction: 'top',
+      life: { count: 1, duration: 0.1 },
+      rate: { delay: 0, quantity: 70 },
+      size: { width: 30, height: 0 },
+      position: { x: 50, y: 100 },
+    },
+  ],
+  fullScreen: { enable: true, zIndex: 9999 },
 }

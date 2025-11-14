@@ -1,16 +1,16 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Habit } from '../../components/Habit'
 import { AddIcon } from '../../components/Icons'
 import { Loader } from '../../components/Loader'
 import { useHabits } from '../../hooks/useHabits'
 import '../../styles/Dashboard.css'
 import { NewHabit } from '../../components/NewHabit'
+import { ParticlesSparks } from '../../components/ParticlesSparks'
 
 export default function Dashboard() {
   const { habits, update, loading } = useHabits()
   const [showModal, setShowModal] = useState(false)
   const [spark, setSpark] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   const openModal = () => {
     setShowModal(true)
@@ -20,20 +20,11 @@ export default function Dashboard() {
     setShowModal(false)
   }
 
-
   useEffect(() => {
     if (!spark) return
-
-    videoRef.current?.play()
-
     const timer = setTimeout(() => {
       setSpark(false)
-      if (videoRef.current) {
-        videoRef.current.pause()
-        videoRef.current.currentTime = 0
-      }
-    }, 2600)
-
+    }, 5000)
     return () => clearTimeout(timer)
   }, [spark])
 
@@ -71,13 +62,7 @@ export default function Dashboard() {
       {loading && <Loader />}
       {spark && (
         <div className='sparks-wrapper'>
-          <video
-            ref={videoRef}
-            className='sparks-bg'
-            src='/sparks.mp4'
-            muted
-            playsInline
-          />
+          <ParticlesSparks />
         </div>
       )}
     </>

@@ -1,9 +1,9 @@
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { useEffect, useState } from 'react'
-import { particlesBgOptions } from '../utils/tsParticlesOptions'
+import { particlesSparksOptions } from '../utils/tsParticlesOptions'
 import { loadSlim } from '@tsparticles/slim'
 
-export const ParticlesBackground = () => {
+export const ParticlesSparks = () => {
   const [init, setInit] = useState(false)
 
   useEffect(() => {
@@ -15,6 +15,6 @@ export const ParticlesBackground = () => {
   }, [])
 
   return (
-    init && <Particles id='tsparticles-ember' options={particlesBgOptions} />
+    init && <Particles id='sparks-effect' options={particlesSparksOptions} />
   )
 }

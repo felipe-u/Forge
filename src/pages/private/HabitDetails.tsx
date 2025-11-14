@@ -5,6 +5,7 @@ import { useHabits } from '../../hooks/useHabits'
 import { calculateStreak } from '../../utils/streak'
 import { toast } from 'sonner'
 import { InfoIcon } from '../../components/Icons'
+import { formatString } from '../../utils/stringFormatter'
 
 interface EditName {
   name: string
@@ -129,8 +130,8 @@ export default function Habit() {
                           }
                         />
                       ) : (
-                        <p>{habit.name}</p>
-                      )}
+                        <p>{formatString(19, habit.name)}</p>
+                     )}
                     </div>
                   </td>
                 </tr>

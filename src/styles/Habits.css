@@ -1,17 +1,24 @@
 .habits-section {
   margin: 124px auto;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px 20px 50px;
+  border-radius: 10px;
+  /* background-color: #151514; */
 }
 
 .add-btn-container {
   width: 80%;
-  max-width: 250px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 .add-btn-container button {
-  font-size: 1.5em;
-  width: 30px;
-  height: 30px;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 5px 10px;
   cursor: pointer;
   background-color: var(--color-500);
   border: none;
@@ -27,11 +34,10 @@
   border-collapse: separate;
   border-spacing: 0;
   width: 80%;
-  max-width: 250px;
   text-align: center;
   border-radius: 5px;
   border: 1px solid #aaa;
-  background-color: #1a1a17;
+  background-color: #151514;
 }
 
 .habits-table td {
@@ -59,7 +65,7 @@
   gap: 50px;
   font-size: 1.3em;
   padding: 70px 30px 30px;
-  width: 50%;
+  width: 100%;
   max-width: 400px;
 }
 
@@ -153,7 +159,7 @@
   border-radius: 15px;
   background-color: var(--color-500);
   font-size: 1.2em;
-  font-weight: 500;
+  font-weight: bold;
   padding: 5px 20px 5px;
   width: 200px;
   display: flex;
@@ -177,7 +183,11 @@
   display: grid;
   place-items: center;
   background-color: rgba(0, 0, 0, 0);
-  backdrop-filter: blur(3px);
+  animation: blurIn 0.3s forwards;
+}
+
+.new-habit-modal.close {
+  animation: blurOut 0.3s forwards;
 }
 
 .inner-modal {
@@ -193,6 +203,11 @@
   gap: 30px;
   padding: 50px 0 25px;
   position: relative;
+  animation: zoomIn 0.3s forwards;
+}
+
+.inner-modal.close {
+  animation: zoomOut 0.3s forwards;
 }
 
 .inner-modal h2 {
@@ -244,7 +259,7 @@
   display: flex;
   place-items: center;
   font-size: 1em;
-  padding: 15px;
+  padding: 10px;
   gap: 15px;
   background-color: var(--color-800);
   color: black;
@@ -255,5 +270,45 @@
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+@keyframes blurIn {
+  from {
+    backdrop-filter: blur(0px);
+  }
+  to {
+    backdrop-filter: blur(3px);
+  }
+}
+
+@keyframes blurOut {
+  from {
+    backdrop-filter: blur(3px);
+  }
+  to {
+    backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.6);
   }
 }

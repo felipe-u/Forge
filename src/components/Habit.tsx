@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { HabitType } from '../types'
 import { getLocalDateString } from '../utils/date'
+import { formatString } from '../utils/stringFormatter'
 
 interface Props {
   habit: HabitType
@@ -28,7 +29,7 @@ export const Habit: React.FC<Props> = ({ habit, onComplete, triggerSpark }) => {
       className={`habit-container ${completed ? 'completed' : ''}`}
       onClick={onCompleteHabit}
     >
-      <h3>{habit.name}</h3>
+      <h3>{formatString(15, habit.name)}</h3>
       <div className='streak'>
         <p>🔥</p>
         <p>

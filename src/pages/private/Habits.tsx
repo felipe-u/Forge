@@ -5,6 +5,7 @@ import { Loader } from '../../components/Loader'
 import { AddIcon } from '../../components/Icons'
 import { useState } from 'react'
 import { NewHabit } from '../../components/NewHabit'
+import { formatString } from '../../utils/stringFormatter'
 
 export default function Habits() {
   const navigate = useNavigate()
@@ -37,7 +38,7 @@ export default function Habits() {
               <tbody>
                 {habits.map((habit) => (
                   <tr key={habit.id} onClick={() => openHabitDetails(habit.id)}>
-                    <td>{habit.name}</td>
+                    <td>{formatString(30, habit.name)}</td>
                   </tr>
                 ))}
               </tbody>

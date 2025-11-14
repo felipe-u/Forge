@@ -2,7 +2,7 @@
   margin: 124px auto;
   padding: 50px 0;
   border-radius: 10px;
-  background-color: #1a1a17;
+  background-color: #151514;
   width: 50%;
   max-width: 430px;
   position: relative;
@@ -12,6 +12,7 @@
 .dashboard-section h2 {
   font-size: 2em;
   padding-bottom: 45px;
+  color: lightgray
 }
 
 .habits-container {
@@ -25,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 250px;
+  width: 270px;
   padding: 0 20px;
   height: 50px;
   border-radius: 50px;

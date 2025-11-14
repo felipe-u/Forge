@@ -15,8 +15,6 @@ export const ParticlesBackground = () => {
   }, [])
 
   return (
-    <>
-      {init && <Particles id='tsparticles-ember' options={particleBgOptions} />}
-    </>
+    init && <Particles id='tsparticles-ember' options={particleBgOptions} />
   )
 }

@@ -1,14 +1,14 @@
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { useEffect, useState } from 'react'
 import { particlesBgOptions } from '../utils/tsParticlesOptions'
-import { loadSlim } from '@tsparticles/slim'
+import { loadFull } from 'tsparticles'
 
 export const ParticlesBackground = () => {
   const [init, setInit] = useState(false)
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine)
+      await loadFull(engine)
     }).then(() => {
       setInit(true)
     })

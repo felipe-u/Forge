@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router'
 import AppRoutes from './routes/AppRoutes'
 import { AuthProvider } from './contexts/AuthContext'
 import { HabitsProvider } from './contexts/HabitsContext'
+import './styles/FadeOverlay.css'
 
 function App() {
   return (

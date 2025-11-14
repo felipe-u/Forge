@@ -5,7 +5,9 @@ import { useEffect, useState } from 'react'
 export default function Login() {
   const { login } = useAuth()
   const navigate = useNavigate()
+
   const [showLogin, setShowLogin] = useState(false)
+  const [fade, setFade] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,12 +18,16 @@ export default function Login() {
   }, [])
 
   const handleLogin = () => {
-    login()
-    navigate('/')
+    setFade(true)
+    setTimeout(() => {
+      login()
+      navigate('/')
+    }, 600)
   }
 
   return (
     <>
+      <div className={`fade-out ${fade ? 'show' : ''}`} />
       {showLogin && (
         <div className='auth-container fade-in'>
           <h1>Forge</h1>

@@ -13,7 +13,7 @@ export const monthNames = [
   'December',
 ]
 
-export const DAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+export const DAYS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
 export function getMonthDays(year: number, month: number) {
   return new Date(year, month + 1, 0).getDate()

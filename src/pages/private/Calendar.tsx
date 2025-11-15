@@ -36,6 +36,7 @@ export default function Calendar() {
     const habit = await get(habitId.toString())
     if (habit) {
       setSelectedHabit(habit)
+      setCurrentDate(new Date())
     }
   }
 
@@ -59,9 +60,28 @@ export default function Calendar() {
   const days = Array.from({ length: totalDays }, (_, index) => {
     const day = index + 1
     const isCompleted = completedDays.includes(day.toString())
+    const isToday =
+      day === new Date().getDate() &&
+      month === new Date().getMonth() &&
+      year === new Date().getFullYear()
+    const isCompletedPrev = completedDays.includes((day - 1).toString())
+    const isCompletedNext = completedDays.includes((day + 1).toString())
 
+    const isStart = isCompleted && !isCompletedPrev
+    const isEnd = isCompleted && !isCompletedNext
+    const isMiddle = isCompleted && isCompletedPrev && isCompletedNext
+    const isSingle = isCompleted && !isCompletedPrev && !isCompletedNext
     return (
-      <div key={day} className={`day-cell ${isCompleted ? 'completed' : ''}`}>
+      <div
+        key={day}
+        className={`day-cell 
+         ${isCompleted ? 'completed' : ''}
+         ${isToday ? 'today' : ''} 
+         ${isStart ? 'completed-start' : ''} 
+         ${isMiddle ? 'completed-middle' : ''}
+         ${isEnd ? 'completed-end' : ''}
+         ${isSingle ? 'completed-single' : ''}`}
+      >
         <p>{day}</p>
       </div>
     )
@@ -91,23 +111,32 @@ export default function Calendar() {
 
       <div className='calendar-container'>
         <div className='month-selector'>
-          <div className='prev-month' onClick={() => changeMonth(-1)}>
+          <div className='month-selector-btn' onClick={() => changeMonth(-1)}>
             <PrevIcon />
           </div>
           <div className='month'>
             <h2>{monthNames[month]}</h2>
             <p>{year}</p>
           </div>
-          <div className='next-month' onClick={() => changeMonth(1)}>
+          <div className='month-selector-btn' onClick={() => changeMonth(1)}>
             <NextIcon />
           </div>
         </div>
         <div className='calendar'>
           {DAYS.map((day) => (
-            <div key={day}>{day}</div>
+            <div className='day-cell day-name' key={day}>
+              {day}
+            </div>
           ))}
           {[...blanks, ...days]}
         </div>
+
+        <button
+          className='today-btn'
+          onClick={() => setCurrentDate(new Date())}
+        >
+          Today
+        </button>
       </div>
     </section>
   )

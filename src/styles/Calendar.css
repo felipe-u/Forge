@@ -8,19 +8,22 @@
 }
 
 .habit-selector select {
-  font-size: 0.9em;
+  font-size: 1em;
+  width: 200px;
   color: #bbb;
   background-color: #212121;
   border: 1px solid #555;
   border-radius: 5px;
   padding: 8px 10px;
-  width: 200px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .calendar-container {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
 
 .month-selector {
@@ -28,25 +31,49 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid #555;
+  border: 1px solid #333;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
   padding: 5px;
+  background-color: #151514;
 }
 
 .month {
   text-align: center;
 }
 
-.prev-month, .next-month {
-  height: 32px
+.month-selector-btn {
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.month-selector-btn svg {
+  transition: 0.3s ease;
+}
+
+.month-selector-btn svg:hover {
+  stroke: #4a5156;
 }
 
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  border: 1px solid #333;
+  border-radius: 0 0 10px 10px;
+  padding: 5px;
+  background-color: #151514;
+}
+
+.day-name {
+  color: #555;
 }
 
 .day-cell {
-  border: 1px solid #555;
+  display: grid;
+  border-radius: 0;
+  place-items: center;
   width: 50px;
   height: 50px;
   padding: 5px;
@@ -57,6 +84,44 @@
   border: none;
 }
 
+.day-cell.today {
+  border: 2px solid #999;
+  border-radius: 20px;
+}
+
 .day-cell.completed {
   background-color: var(--color-800);
+}
+
+.day-cell.completed-start {
+  border-radius: 15px 0 0 15px;
+}
+
+.day-cell.completed-end {
+  border-radius: 0 15px 15px 0;
+}
+
+.day-cell.completed-middle {
+  border-radius: 0;
+}
+
+.day-cell.completed-single {
+  border-radius: 15px;
+}
+
+.today-btn {
+  font-size: 1em;
+  color: #bbb;
+  width: 100px;
+  background-color: #212121;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.today-btn:hover {
+  background-color: #333;
 }

@@ -10,9 +10,11 @@ import {
 } from '../../utils/calendar'
 import { NextIcon, PrevIcon } from '../../components/Icons'
 import { type HabitType } from '../../types'
+import { useTheme } from '../../hooks/useTheme'
 
 export default function Calendar() {
   const { habits, get } = useHabits()
+  const { theme } = useTheme()
   const [selectedHabit, setSelectedHabit] = useState<HabitType>()
   const [currentDate, setCurrentDate] = useState(new Date())
 
@@ -75,6 +77,7 @@ export default function Calendar() {
       <div
         key={day}
         className={`day-cell 
+         ${theme}
          ${isCompleted ? 'completed' : ''}
          ${isToday ? 'today' : ''} 
          ${isStart ? 'completed-start' : ''} 
@@ -89,7 +92,7 @@ export default function Calendar() {
 
   return (
     <section className='calendar-section'>
-      <div className='habit-selector'>
+      <div className={`habit-selector ${theme}`}>
         <select
           name='habit'
           id='habit'
@@ -110,21 +113,27 @@ export default function Calendar() {
       </div>
 
       <div className='calendar-container'>
-        <div className='month-selector'>
-          <div className='month-selector-btn' onClick={() => changeMonth(-1)}>
+        <div className={`month-selector ${theme}`}>
+          <div
+            className={`month-selector-btn ${theme}`}
+            onClick={() => changeMonth(-1)}
+          >
             <PrevIcon />
           </div>
-          <div className='month'>
+          <div className={`month ${theme}`}>
             <h2>{monthNames[month]}</h2>
             <p>{year}</p>
           </div>
-          <div className='month-selector-btn' onClick={() => changeMonth(1)}>
+          <div
+            className={`month-selector-btn ${theme}`}
+            onClick={() => changeMonth(1)}
+          >
             <NextIcon />
           </div>
         </div>
-        <div className='calendar'>
+        <div className={`calendar ${theme}`}>
           {DAYS.map((day) => (
-            <div className='day-cell day-name' key={day}>
+            <div className={`day-cell day-name ${theme}`} key={day}>
               {day}
             </div>
           ))}
@@ -132,7 +141,7 @@ export default function Calendar() {
         </div>
 
         <button
-          className='today-btn'
+          className={`today-btn ${theme}`}
           onClick={() => setCurrentDate(new Date())}
         >
           Today

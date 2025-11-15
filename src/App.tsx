@@ -3,13 +3,16 @@ import AppRoutes from './routes/AppRoutes'
 import { AuthProvider } from './contexts/AuthContext'
 import { HabitsProvider } from './contexts/HabitsContext'
 import './styles/FadeOverlay.css'
+import { ThemeProvider } from './contexts/ThemeContext'
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <HabitsProvider>
-          <AppRoutes />
+          <ThemeProvider>
+            <AppRoutes />
+          </ThemeProvider>
         </HabitsProvider>
       </AuthProvider>
     </BrowserRouter>

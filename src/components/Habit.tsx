@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { HabitType } from '../types'
 import { getLocalDateString } from '../utils/date'
 import { formatString } from '../utils/stringFormatter'
+import { useTheme } from '../hooks/useTheme'
 
 interface Props {
   habit: HabitType
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export const Habit: React.FC<Props> = ({ habit, onComplete, triggerSpark }) => {
+  const { theme } = useTheme()
   const [completed, setCompleted] = useState(false)
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export const Habit: React.FC<Props> = ({ habit, onComplete, triggerSpark }) => {
 
   return (
     <div
-      className={`habit-container ${completed ? 'completed' : ''}`}
+      className={`habit-container ${theme} ${completed ? 'completed' : ''}`}
       onClick={onCompleteHabit}
     >
       <h3>{formatString(15, habit.name)}</h3>

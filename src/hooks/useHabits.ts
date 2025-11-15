@@ -5,7 +5,7 @@ export function useHabits() {
   const context = useContext(HabitsContext)
 
   if (!context) {
-    throw new Error('useHabits must be withing an HabitsProvider')
+    throw new Error('useHabits must be within a HabitsProvider')
   }
 
   return context

@@ -77,16 +77,16 @@ export const particlesSparksOptions: ISourceOptions = {
       value: { min: 0, max: 1 },
       animation: {
         enable: true,
-        speed: { min: 5, max: 10 },
+        speed: { min: 1, max: 10 },
         sync: false,
         startValue: 'max',
         destroy: 'min',
       },
     },
     number: { value: 0 },
-    color: { value: '#FFD700' },
+    color: { value: ['#FFD700', '#ae7d0bff'] },
     shape: { type: 'circle' },
-    size: { value: { min: 1, max: 3 } },
+    size: { value: { min: 2, max: 4 } },
     move: {
       enable: true,
       speed: 20,
@@ -103,7 +103,7 @@ export const particlesSparksOptions: ISourceOptions = {
     {
       direction: 'top',
       life: { count: 1, duration: 0.1 },
-      rate: { delay: 0, quantity: 70 },
+      rate: { delay: 0, quantity: 90 },
       size: { width: 30, height: 0 },
       position: { x: 50, y: 100 },
     },

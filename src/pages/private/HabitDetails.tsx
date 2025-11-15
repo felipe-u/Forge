@@ -6,6 +6,7 @@ import { calculateStreak } from '../../utils/streak'
 import { toast } from 'sonner'
 import { InfoIcon } from '../../components/Icons'
 import { formatString } from '../../utils/stringFormatter'
+import { useTheme } from '../../hooks/useTheme'
 
 interface EditName {
   name: string
@@ -14,12 +15,13 @@ interface EditName {
 
 export default function Habit() {
   const navigate = useNavigate()
+  const { id } = useParams()
+  const { get, remove, update } = useHabits()
+  const {theme} = useTheme()
   const [habit, setHabit] = useState<HabitType>()
   const [editName, setEditName] = useState<EditName>({ name: '', show: false })
   const [showHelper, setShowHelper] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const { id } = useParams()
-  const { get, remove, update } = useHabits()
 
   useEffect(() => {
     fetchHabit()
@@ -106,17 +108,17 @@ export default function Habit() {
 
   return (
     <section className='habits-section'>
-      <div className='habit-details-container'>
+      <div className={`habit-details-container ${theme}`}>
         {habit ? (
           <>
-            <table className='habit-details-table'>
+            <table className={`habit-details-table ${theme}`}>
               <tbody>
                 <tr>
                   <td style={{ borderRadius: '10px 0 0 0' }}>
                     <strong>Habit:</strong>
                   </td>
                   <td style={{ padding: '5px' }}>
-                    <div className='habit-name' onClick={toggleEditName}>
+                    <div className={`habit-name ${theme}`} onClick={toggleEditName}>
                       {editName.show ? (
                         <input
                           ref={inputRef}
@@ -156,7 +158,7 @@ export default function Habit() {
               </tbody>
             </table>
 
-            <button className='delete-btn' onClick={() => handleDelete(id)}>
+            <button className={`delete-btn ${theme}`} onClick={() => handleDelete(id)}>
               Delete
             </button>
           </>
@@ -165,13 +167,13 @@ export default function Habit() {
             <p>Nothing here to show</p>
           </>
         )}
-        <button className='close-btn' onClick={goBack}>
+        <button className={`close-btn ${theme}`} onClick={goBack}>
           &times;
         </button>
       </div>
 
       {showHelper && (
-        <div className='helper'>
+        <div className={`helper ${theme}`}>
           <div className='icon'>
             <InfoIcon />
           </div>

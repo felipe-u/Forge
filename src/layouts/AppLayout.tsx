@@ -3,10 +3,12 @@ import { useAuth } from '../hooks/useAuth'
 import { useEffect, useState } from 'react'
 import '../styles/Home.css'
 import { LogoutIcon, MenuIcon } from '../components/Icons'
+import { useTheme } from '../hooks/useTheme'
 
 export default function AppLayout() {
   const { logout } = useAuth()
   const navigate = useNavigate()
+  const { theme, toggleTheme } = useTheme()
 
   const [toggleMenu, setToggleMenu] = useState(false)
   const [fadeIn, setFadeIn] = useState(false)
@@ -43,7 +45,7 @@ export default function AppLayout() {
 
           <div className='header-container'>
             <h1>Forge</h1>
-            <button>Change theme</button>
+            <button onClick={toggleTheme}>Change theme</button>
           </div>
         </header>
         <div className='app-layout'>
@@ -67,7 +69,7 @@ export default function AppLayout() {
             </nav>
           </div>
 
-          <main className='app-main'>
+          <main className={`app-main ${theme}`}>
             <Outlet />
           </main>
         </div>

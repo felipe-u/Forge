@@ -6,10 +6,12 @@ import { AddIcon } from '../../components/Icons'
 import { useState } from 'react'
 import { NewHabit } from '../../components/NewHabit'
 import { formatString } from '../../utils/stringFormatter'
+import { useTheme } from '../../hooks/useTheme'
 
 export default function Habits() {
   const navigate = useNavigate()
   const { habits, loading } = useHabits()
+  const { theme } = useTheme()
   const [showModal, setShowModal] = useState(false)
 
   const openHabitDetails = (id: number | undefined) => {
@@ -34,7 +36,7 @@ export default function Habits() {
                 +
               </button>
             </div>
-            <table className='habits-table'>
+            <table className={`habits-table ${theme}`}>
               <tbody>
                 {habits.map((habit) => (
                   <tr key={habit.id} onClick={() => openHabitDetails(habit.id)}>

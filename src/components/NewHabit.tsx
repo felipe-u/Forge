@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { useHabits } from '../hooks/useHabits'
+import { useTheme } from '../hooks/useTheme'
 
 interface Props {
   closeModal: () => void
@@ -8,6 +9,7 @@ interface Props {
 
 export const NewHabit: React.FC<Props> = ({ closeModal }) => {
   const { add } = useHabits()
+  const {theme} = useTheme()
   const [name, setName] = useState('')
   const [close, setClose] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -41,10 +43,10 @@ export const NewHabit: React.FC<Props> = ({ closeModal }) => {
 
   return (
     <div className={`new-habit-modal ${close ? 'close' : ''}`}>
-      <div className={`inner-modal ${close ? 'close' : ''}`}>
+      <div className={`inner-modal ${theme} ${close ? 'close' : ''}`}>
         <h2>New Habit</h2>
         <form onSubmit={onCreateHabit}>
-          <div className='input-modal-container'>
+          <div className={`input-modal-container ${theme}`}>
             <input
               ref={inputRef}
               type='text'
@@ -55,7 +57,7 @@ export const NewHabit: React.FC<Props> = ({ closeModal }) => {
             />
             <button>Create</button>
           </div>
-          <button className='close-btn' onClick={handleClose}>
+          <button className={`close-btn ${theme}`} onClick={handleClose}>
             &times;
           </button>
         </form>

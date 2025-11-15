@@ -2,18 +2,34 @@
   margin: 124px auto;
   padding: 50px 0;
   border-radius: 10px;
-  background-color: #151514;
   width: 50%;
   max-width: 430px;
   position: relative;
   z-index: 5;
+  transition: 0.3s ease;
+}
+
+.dashboard-section.dark {
+  background-color: #151514;
+}
+
+.dashboard-section.light {
+  background-color: #f5f1e4
 }
 
 .dashboard-section h2 {
   font-size: 24px;
   font-weight: 600;
   padding-bottom: 45px;
-  color: lightgray;
+  transition: 0.3s ease;
+}
+
+.dashboard-section.dark h2 {
+  color: #d3d3d3;
+}
+
+.dashboard-section.dashboard-section.light h2 {
+  color: #222;
 }
 
 .habits-container {
@@ -23,7 +39,6 @@
 }
 
 .habit-container {
-  border: 1px solid #aaa;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,13 +50,35 @@
   transition: 0.3s ease;
 }
 
+.habit-container.dark {
+  border: 1px solid #aaa;
+  color: whitesmoke;
+}
+
+.habit-container.light {
+  border: 1px solid #35332f;
+  color: #222;
+  background-color: #fff;
+}
+
 .habit-container.completed {
-  opacity: 0.2;
   cursor: default;
 }
 
-.habit-container:hover {
+.habit-container.habit-container.completed.dark {
+  opacity: 0.2;
+}
+
+.habit-container.habit-container.completed.light {
+  opacity: 0.4;
+}
+
+.habit-container.dark:hover {
   background-color: #c08a0b14;
+}
+
+.habit-container.light:hover {
+  background-color: #f0e4c6;
 }
 
 .habit-container.completed:hover {

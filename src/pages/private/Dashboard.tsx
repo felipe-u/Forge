@@ -6,9 +6,11 @@ import { useHabits } from '../../hooks/useHabits'
 import '../../styles/Dashboard.css'
 import { NewHabit } from '../../components/NewHabit'
 import { ParticlesSparks } from '../../components/ParticlesSparks'
+import { useTheme } from '../../hooks/useTheme'
 
 export default function Dashboard() {
   const { habits, update, loading } = useHabits()
+  const { theme } = useTheme()
   const [showModal, setShowModal] = useState(false)
   const [spark, setSpark] = useState(false)
 
@@ -34,7 +36,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <section className='dashboard-section'>
+      <section className={`dashboard-section ${theme}`}>
         {habits.length > 0 ? (
           <>
             <h2>Seize the day</h2>

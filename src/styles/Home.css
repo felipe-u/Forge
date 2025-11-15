@@ -12,6 +12,18 @@ header {
   z-index: 10;
 }
 
+header h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .menu-btn button {
   border: none;
   border-radius: 5px;
@@ -54,9 +66,9 @@ nav > a,
 nav > button {
   color: #eee;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 16px;
+  font-weight: 500;
   padding: 15px;
-  font-weight: bold;
   text-decoration: none;
   transition: 0.3s ease;
   margin: 0 5px;
@@ -69,8 +81,12 @@ nav > button:hover {
   background-color: #383838;
 }
 
+nav > a.active {
+  font-weight: 600;
+}
+
 nav > button {
-  font-size: 1.1em;
+  font-size: 15px;
   background-color: transparent;
   border: none;
   cursor: pointer;

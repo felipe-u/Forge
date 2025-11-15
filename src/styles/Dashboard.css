@@ -10,9 +10,10 @@
 }
 
 .dashboard-section h2 {
-  font-size: 2em;
+  font-size: 24px;
+  font-weight: 600;
   padding-bottom: 45px;
-  color: lightgray
+  color: lightgray;
 }
 
 .habits-container {
@@ -45,6 +46,11 @@
 
 .habit-container.completed:hover {
   background-color: unset;
+}
+.habit-container h3,
+.habit-container p {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .streak {

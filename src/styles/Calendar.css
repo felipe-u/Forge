@@ -8,15 +8,20 @@
 }
 
 .habit-selector select {
-  font-size: 1em;
+  font-size: 16px;
+  font-weight: 500;
   width: 200px;
   color: #bbb;
   background-color: #212121;
   border: 1px solid #555;
   border-radius: 5px;
-  padding: 8px 10px;
+  padding: 10px 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.habit-selector select option {
+  font-family: 'Inter';
 }
 
 .calendar-container {
@@ -40,6 +45,16 @@
 
 .month {
   text-align: center;
+}
+
+.month h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.month p {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .month-selector-btn {
@@ -68,9 +83,13 @@
 
 .day-name {
   color: #555;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .day-cell {
+  font-size: 14px;
+  font-weight: 500;
   display: grid;
   border-radius: 0;
   place-items: center;
@@ -110,7 +129,8 @@
 }
 
 .today-btn {
-  font-size: 1em;
+  font-size: 16px;
+  font-weight: 600;
   color: #bbb;
   width: 100px;
   background-color: #212121;

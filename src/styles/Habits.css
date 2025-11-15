@@ -4,7 +4,6 @@
   max-width: 400px;
   padding: 20px 20px 50px;
   border-radius: 10px;
-  /* background-color: #151514; */
 }
 
 .add-btn-container {
@@ -41,7 +40,8 @@
 }
 
 .habits-table td {
-  font-size: 1.1em;
+  font-size: 16px;
+  font-weight: 500;
   padding: 12px;
   cursor: pointer;
 }
@@ -85,12 +85,16 @@
   color: black;
   background-color: var(--color-500);
   border-bottom: 1px solid black;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .habit-details-table td:nth-child(2) {
   width: 60%;
   text-align: center;
   border-bottom: 1px solid #333;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .habit-name {
@@ -102,12 +106,14 @@
 }
 
 .habit-name input {
-  font-size: 0.9em;
+  font-size: 16px;
   width: 100%;
+  height: 100%;
+  border-radius: 0 5px 5px 0;
   text-align: center;
   background-color: transparent;
   color: whitesmoke;
-  border: none;
+  border: 1px solid #333;
   caret-color: var(--color-500);
 }
 
@@ -119,6 +125,8 @@
   margin: 0 auto;
   cursor: pointer;
   transition: 0.3s ease;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .delete-btn {
@@ -147,6 +155,7 @@
   background-color: #272722;
   color: #777;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .close-btn:hover {
@@ -211,7 +220,8 @@
 }
 
 .inner-modal h2 {
-  font-size: 2em;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .input-modal-container {
@@ -223,7 +233,8 @@
 
 .input-modal-container input {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 16px;
+  font-weight: 500;
   padding: 5px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.081);
@@ -237,8 +248,8 @@
 }
 
 .input-modal-container button {
-  font-size: 1em;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
   padding: 7px;
   cursor: pointer;
   background-color: var(--color-500);
@@ -249,7 +260,7 @@
 }
 
 .input-modal-container button:hover {
-  background-color: grey;
+  background-color: var(--color-700);
 }
 
 .helper {
@@ -258,7 +269,8 @@
   margin-top: 90px;
   display: flex;
   place-items: center;
-  font-size: 1em;
+  font-size: 13px;
+  font-weight: 400;
   padding: 10px;
   gap: 15px;
   background-color: var(--color-800);

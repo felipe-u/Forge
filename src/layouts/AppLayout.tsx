@@ -45,7 +45,17 @@ export default function AppLayout() {
 
           <div className='header-container'>
             <h1>Forge</h1>
-            <button onClick={toggleTheme}>Change theme</button>
+            <div className='theme-container'>
+              <p>{theme === 'dark' ? '☾' : '☀'}</p>
+              <label className='theme-switch' aria-label='Cambiar tema'>
+                <input
+                  type='checkbox'
+                  checked={theme === 'dark'}
+                  onChange={toggleTheme}
+                />
+                <span className='slider' role='presentation'></span>
+              </label>
+            </div>
           </div>
         </header>
         <div className='app-layout'>

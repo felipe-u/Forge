@@ -59,6 +59,10 @@ export default function AppLayout() {
           </div>
         </header>
         <div className='app-layout'>
+          <div
+            className={`overlay ${toggleMenu ? 'show' : ''}`}
+            onClick={hideSideMenu}
+          />
           <div className={`nav-container ${toggleMenu ? 'opened' : ''}`}>
             <nav>
               <NavLink to='/dashboard' onClick={hideSideMenu}>

@@ -96,6 +96,20 @@ nav > button {
   gap: 15px;
 }
 
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.5s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.overlay.show {
+  background-color: rgba(0, 0, 0, 0.74);
+  pointer-events: auto;
+}
+
 section {
   display: flex;
   flex-direction: column;

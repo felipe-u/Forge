@@ -2,7 +2,7 @@
   margin: 124px auto;
   padding: 50px 0;
   border-radius: 10px;
-  width: 50%;
+  width: 80%;
   max-width: 430px;
   position: relative;
   z-index: 5;
@@ -36,13 +36,15 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 90%;
+  max-width: 280px;
 }
 
 .habit-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 270px;
+  width: 100%;
   padding: 0 20px;
   height: 50px;
   border-radius: 50px;

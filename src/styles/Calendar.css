@@ -1,6 +1,7 @@
 .calendar-section {
   margin: 124px auto;
-  width: max-content;
+  width: 100%;
+  max-width: 360px;
 }
 
 .habit-selector {
@@ -223,4 +224,24 @@
 
 .today-btn.light:hover {
   background-color: #d6d3ca;
+}
+
+@media (max-width: 400px) {
+  .calendar-container {
+    width: 95%;
+  }
+
+  .habit-selector {
+    width: 95%;
+  }
+
+  .calendar {
+    width: 100%;
+  }
+
+  .day-cell {
+    width: 45px;
+    height: 45px;
+  }
+
 }

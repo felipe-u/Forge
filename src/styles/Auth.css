@@ -20,6 +20,8 @@
 .auth-container h1 {
   text-align: center;
   color: var(--color-500);
+  font-family: 'Marcellus';
+  font-size: 40px;
 }
 
 .auth-container form {

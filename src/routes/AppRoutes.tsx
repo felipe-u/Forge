@@ -27,7 +27,7 @@ export default function AppRoutes() {
             </WelcomeGuard>
           }
         >
-          <Route index element={<Navigate to='/' replace />} />
+          <Route index element={<Navigate to='/dashboard' replace />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/habits' element={<Habits />} />
           <Route path='/habits/:id' element={<Habit />} />

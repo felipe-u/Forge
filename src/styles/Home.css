@@ -57,9 +57,11 @@ nav {
   flex-direction: column;
   background-color: #303030;
   width: 250px;
+  height: calc(100dvh - 74px);
   height: calc(100vh - 74px);
   padding: 5px 0;
   gap: 6px;
+  overflow-y: auto;
 }
 
 nav > a,

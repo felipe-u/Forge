@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
-import '../styles/Welcome.css'
 import { ParticlesBackground } from '../components/ParticlesBackground'
+import '../styles/Welcome.css'
 
 export default function WelcomeLayout() {
   return (

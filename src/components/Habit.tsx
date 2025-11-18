@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import type { HabitType } from '../types'
+import { useTheme } from '../hooks/useTheme'
 import { getLocalDateString } from '../utils/date'
 import { formatString } from '../utils/stringFormatter'
-import { useTheme } from '../hooks/useTheme'
+import type { HabitType } from '../types'
 
 interface Props {
   habit: HabitType

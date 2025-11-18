@@ -1,12 +1,12 @@
+import type { HabitType } from '../types'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import type { HabitType } from '../types'
 import { useHabits } from '../hooks/useHabits'
-import { calculateStreak } from '../utils/streak'
-import { toast } from 'sonner'
-import { InfoIcon } from '../components/Icons'
-import { formatString } from '../utils/stringFormatter'
 import { useTheme } from '../hooks/useTheme'
+import { calculateStreak } from '../utils/streak'
+import { formatString } from '../utils/stringFormatter'
+import { InfoIcon } from '../components/Icons'
+import { toast } from 'sonner'
 
 interface EditName {
   name: string

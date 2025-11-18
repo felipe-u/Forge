@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router'
-import '../styles/Habits.css'
-import { useHabits } from '../hooks/useHabits'
-import { Loader } from '../components/Loader'
-import { AddIcon } from '../components/Icons'
 import { useState } from 'react'
-import { NewHabit } from '../components/NewHabit'
-import { formatString } from '../utils/stringFormatter'
+import { useNavigate } from 'react-router'
+import { useHabits } from '../hooks/useHabits'
 import { useTheme } from '../hooks/useTheme'
+import { formatString } from '../utils/stringFormatter'
+import { Loader } from '../components/Loader'
+import { NewHabit } from '../components/NewHabit'
+import { AddIcon } from '../components/Icons'
+import '../styles/Habits.css'
 
 export default function Habits() {
   const navigate = useNavigate()

@@ -1,9 +1,9 @@
-import { NavLink, Outlet, useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import '../styles/Home.css'
-import { LogoutIcon, MenuIcon } from '../components/Icons'
+import { NavLink, Outlet, useNavigate } from 'react-router'
 import { useTheme } from '../hooks/useTheme'
 import { useOnboarding } from '../hooks/useOnboarding'
+import { LogoutIcon, MenuIcon } from '../components/Icons'
+import '../styles/Home.css'
 
 export default function AppLayout() {
   const navigate = useNavigate()

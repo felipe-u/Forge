@@ -1,3 +1,4 @@
+import type { HabitType } from '../types'
 import {
   addHabit,
   getHabit,
@@ -5,7 +6,6 @@ import {
   removeHabit,
   updateHabit,
 } from '../db/indexedDB'
-import type { HabitType } from '../types'
 import { getLocalDateString, getStartOfLocalDay } from '../utils/date'
 import { calculateStreak } from '../utils/streak'
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Habit } from '../components/Habit'
-import { AddIcon } from '../components/Icons'
-import { Loader } from '../components/Loader'
 import { useHabits } from '../hooks/useHabits'
-import '../styles/Dashboard.css'
+import { Habit } from '../components/Habit'
+import { Loader } from '../components/Loader'
 import { NewHabit } from '../components/NewHabit'
 import { ParticlesSparks } from '../components/ParticlesSparks'
 import { useTheme } from '../hooks/useTheme'
+import { AddIcon } from '../components/Icons'
+import '../styles/Dashboard.css'
 
 export default function Dashboard() {
   const { habits, update, loading } = useHabits()

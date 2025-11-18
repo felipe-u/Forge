@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { toast } from 'sonner'
 import { useHabits } from '../hooks/useHabits'
 import { useTheme } from '../hooks/useTheme'
+import { toast } from 'sonner'
 
 interface Props {
   closeModal: () => void
@@ -9,7 +9,7 @@ interface Props {
 
 export const NewHabit: React.FC<Props> = ({ closeModal }) => {
   const { add } = useHabits()
-  const {theme} = useTheme()
+  const { theme } = useTheme()
   const [name, setName] = useState('')
   const [close, setClose] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)

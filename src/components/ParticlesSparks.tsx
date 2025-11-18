@@ -1,7 +1,7 @@
-import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { useEffect, useState } from 'react'
-import { particlesSparksOptions } from '../utils/tsParticlesOptions'
 import { loadFull } from 'tsparticles'
+import Particles, { initParticlesEngine } from '@tsparticles/react'
+import { particlesSparksOptions } from '../utils/tsParticlesOptions'
 
 export const ParticlesSparks = () => {
   const [init, setInit] = useState(false)

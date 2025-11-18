@@ -16,7 +16,9 @@ export const OnboardingContext = createContext<OnboardingContextType | null>(
 )
 
 export function OnboardingProvider({ children }: OnboardingProviderProps) {
-  const [shouldShowWelcome, setShouldShowWelcome] = useState<boolean | null>(null)
+  const [shouldShowWelcome, setShouldShowWelcome] = useState<boolean | null>(
+    null
+  )
 
   useEffect(() => {
     const lastVisit = localStorage.getItem('lastVisit')

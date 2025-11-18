@@ -1,9 +1,9 @@
 import { BrowserRouter } from 'react-router'
-import AppRoutes from './routes/AppRoutes'
 import { HabitsProvider } from './contexts/HabitsContext'
-import './styles/FadeOverlay.css'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { OnboardingProvider } from './contexts/OnboardingContext'
+import AppRoutes from './routes/AppRoutes'
+import './styles/FadeOverlay.css'
 
 function App() {
   return (

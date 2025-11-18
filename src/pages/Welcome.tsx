@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 import { useOnboarding } from '../hooks/useOnboarding'
 
 export default function Login() {

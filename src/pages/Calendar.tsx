@@ -1,4 +1,4 @@
-import '../styles/Calendar.css'
+import { type HabitType } from '../types'
 import { useEffect, useState } from 'react'
 import { useHabits } from '../hooks/useHabits'
 import {
@@ -8,13 +8,14 @@ import {
   getMonthDays,
   monthNames,
 } from '../utils/calendar'
-import { NextIcon, PrevIcon } from '../components/Icons'
-import { type HabitType } from '../types'
 import { useTheme } from '../hooks/useTheme'
+import { NextIcon, PrevIcon } from '../components/Icons'
+import '../styles/Calendar.css'
 
 export default function Calendar() {
   const { habits, get } = useHabits()
   const { theme } = useTheme()
+
   const [selectedHabit, setSelectedHabit] = useState<HabitType>()
   const [currentDate, setCurrentDate] = useState(new Date())
 

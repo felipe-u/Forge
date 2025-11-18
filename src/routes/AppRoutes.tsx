@@ -2,8 +2,8 @@ import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 import AppLayout from '../layouts/AppLayout'
 import WelcomeLayout from '../layouts/WelcomeLayout'
-import { Loader } from '../components/Loader'
 import WelcomeGuard from './WelcomeGuard'
+import { Loader } from '../components/Loader'
 
 const Welcome = lazy(() => import('../pages/Welcome'))
 const Dashboard = lazy(() => import('../pages/Dashboard'))

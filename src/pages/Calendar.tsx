@@ -1,4 +1,4 @@
-import { type HabitType } from '../types'
+import type { HabitType } from '../types'
 import { useEffect, useState } from 'react'
 import { useHabits } from '../hooks/useHabits'
 import {

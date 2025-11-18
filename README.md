@@ -4,8 +4,25 @@ A minimalist daily habit-building app focused on clarity, simplicity, and real p
 Forge helps you track your habits, maintain streaks, and view your history — all stored locally using IndexedDB.
 
 &nbsp;
-### Demo
+## Demo
 
+Below are short demos showcasing core functionality:
+
+### Core workflow:
+![Core demo](./src/assets/core-demo.gif)
+- Create a habit
+- Complete it
+- Edit it
+- Delete it
+
+&nbsp;
+### Calendar & streaks:
+![Calendar demo](./src/assets/calendar-demo.gif)
+- Multiple habits support
+- Daily completions
+- History per habit
+
+&nbsp;
 ## Features
 - Add / edit / delete habits
 - Mark habits as completed once per day
@@ -14,6 +31,7 @@ Forge helps you track your habits, maintain streaks, and view your history — a
 - Toast feedback (sonner)
 - Lightweight particle animations (tsparticles)
 
+&nbsp;
 ## Stack
 - React + Vite
 - IndexedDB (local persistence)
@@ -21,6 +39,7 @@ Forge helps you track your habits, maintain streaks, and view your history — a
 - Sonner (toast notifications)
 - CSS
 
+&nbsp;
 ## What I learned
 - Persisting data locally using IndexedDB
 - Structuring routes and views with react-router
@@ -28,6 +47,7 @@ Forge helps you track your habits, maintain streaks, and view your history — a
 - Designing a daily streak system and calendar history
 - Integrating animations without compromising UX
 
+&nbsp;
 ## How to run
 
 ### Pre-requisites
@@ -46,5 +66,6 @@ npm install
 npm run dev
 ```
 
+&nbsp;
 ## Status
 Version 1 - stable and functional

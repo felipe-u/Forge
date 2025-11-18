@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router'
-import '../styles/Auth.css'
+import '../styles/Welcome.css'
 import { ParticlesBackground } from '../components/ParticlesBackground'
 
 export default function WelcomeLayout() {
   return (
-    <main className='auth-main'>
+    <main className='welcome-main'>
       <Outlet />
       <ParticlesBackground />
     </main>

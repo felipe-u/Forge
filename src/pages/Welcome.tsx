@@ -29,24 +29,12 @@ export default function Login() {
     <>
       <div className={`fade-out ${fade ? 'show' : ''}`} />
       {show && (
-        <div className='auth-container fade-in'>
+        <div className='welcome-container fade-in'>
           <h1>Forge</h1>
-          <form>
-            <div className='input-container'>
-              <input type='email' name='email' id='email' placeholder='Email' />
-            </div>
-            <div className='input-container'>
-              <input
-                type='password'
-                name='password'
-                id='password'
-                placeholder='Password'
-              />
-            </div>
-            <button type='button' onClick={handleEnter}>
-              Login
-            </button>
-          </form>
+          <img src='/forge.png' alt='Forge Icon' />
+          <button className='welcome-btn' type='button' onClick={handleEnter}>
+            Enter
+          </button>
         </div>
       )}
     </>

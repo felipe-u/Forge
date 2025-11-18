@@ -1,13 +1,13 @@
 import { NavLink, Outlet, useNavigate } from 'react-router'
-import { useAuth } from '../hooks/useAuth'
 import { useEffect, useState } from 'react'
 import '../styles/Home.css'
 import { LogoutIcon, MenuIcon } from '../components/Icons'
 import { useTheme } from '../hooks/useTheme'
+import { useOnboarding } from '../hooks/useOnboarding'
 
 export default function AppLayout() {
-  const { logout } = useAuth()
   const navigate = useNavigate()
+  const {resetWelcome} = useOnboarding()
   const { theme, toggleTheme } = useTheme()
 
   const [toggleMenu, setToggleMenu] = useState(false)
@@ -23,7 +23,7 @@ export default function AppLayout() {
     setFadeOut(true)
 
     setTimeout(() => {
-      logout()
+      resetWelcome()
       navigate('/login')
     }, 600)
   }

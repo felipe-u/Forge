@@ -1,16 +1,16 @@
-import '../../styles/Calendar.css'
+import '../styles/Calendar.css'
 import { useEffect, useState } from 'react'
-import { useHabits } from '../../hooks/useHabits'
+import { useHabits } from '../hooks/useHabits'
 import {
   DAYS,
   getCompletedDays,
   getFirstDayOfMonth,
   getMonthDays,
   monthNames,
-} from '../../utils/calendar'
-import { NextIcon, PrevIcon } from '../../components/Icons'
-import { type HabitType } from '../../types'
-import { useTheme } from '../../hooks/useTheme'
+} from '../utils/calendar'
+import { NextIcon, PrevIcon } from '../components/Icons'
+import { type HabitType } from '../types'
+import { useTheme } from '../hooks/useTheme'
 
 export default function Calendar() {
   const { habits, get } = useHabits()

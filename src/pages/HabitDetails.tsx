@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import type { HabitType } from '../../types'
-import { useHabits } from '../../hooks/useHabits'
-import { calculateStreak } from '../../utils/streak'
+import type { HabitType } from '../types'
+import { useHabits } from '../hooks/useHabits'
+import { calculateStreak } from '../utils/streak'
 import { toast } from 'sonner'
-import { InfoIcon } from '../../components/Icons'
-import { formatString } from '../../utils/stringFormatter'
-import { useTheme } from '../../hooks/useTheme'
+import { InfoIcon } from '../components/Icons'
+import { formatString } from '../utils/stringFormatter'
+import { useTheme } from '../hooks/useTheme'
 
 interface EditName {
   name: string
@@ -17,7 +17,7 @@ export default function Habit() {
   const navigate = useNavigate()
   const { id } = useParams()
   const { get, remove, update } = useHabits()
-  const {theme} = useTheme()
+  const { theme } = useTheme()
   const [habit, setHabit] = useState<HabitType>()
   const [editName, setEditName] = useState<EditName>({ name: '', show: false })
   const [showHelper, setShowHelper] = useState(false)
@@ -118,7 +118,10 @@ export default function Habit() {
                     <strong>Habit:</strong>
                   </td>
                   <td style={{ padding: '5px' }}>
-                    <div className={`habit-name ${theme}`} onClick={toggleEditName}>
+                    <div
+                      className={`habit-name ${theme}`}
+                      onClick={toggleEditName}
+                    >
                       {editName.show ? (
                         <input
                           ref={inputRef}
@@ -133,7 +136,7 @@ export default function Habit() {
                         />
                       ) : (
                         <p>{formatString(19, habit.name)}</p>
-                     )}
+                      )}
                     </div>
                   </td>
                 </tr>
@@ -158,7 +161,10 @@ export default function Habit() {
               </tbody>
             </table>
 
-            <button className={`delete-btn ${theme}`} onClick={() => handleDelete(id)}>
+            <button
+              className={`delete-btn ${theme}`}
+              onClick={() => handleDelete(id)}
+            >
               Delete
             </button>
           </>

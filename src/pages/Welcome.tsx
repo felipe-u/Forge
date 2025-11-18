@@ -1,34 +1,34 @@
 import { useNavigate } from 'react-router'
-import { useAuth } from '../../hooks/useAuth'
 import { useEffect, useState } from 'react'
+import { useOnboarding } from '../hooks/useOnboarding'
 
 export default function Login() {
-  const { login } = useAuth()
   const navigate = useNavigate()
+  const { enterApp } = useOnboarding()
 
-  const [showLogin, setShowLogin] = useState(false)
+  const [show, setShow] = useState(false)
   const [fade, setFade] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowLogin(true)
+      setShow(true)
     }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
 
-  const handleLogin = () => {
+  const handleEnter = () => {
     setFade(true)
     setTimeout(() => {
-      login()
-      navigate('/')
+      enterApp()
+      navigate('/dashboard')
     }, 600)
   }
 
   return (
     <>
       <div className={`fade-out ${fade ? 'show' : ''}`} />
-      {showLogin && (
+      {show && (
         <div className='auth-container fade-in'>
           <h1>Forge</h1>
           <form>
@@ -43,7 +43,7 @@ export default function Login() {
                 placeholder='Password'
               />
             </div>
-            <button type='button' onClick={handleLogin}>
+            <button type='button' onClick={handleEnter}>
               Login
             </button>
           </form>

@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from 'react'
 import { getLocalDateString, isSameLocalDay } from '../utils/date'
 
 interface OnboardingContextType {
-  shouldShowWelcome: boolean
+  shouldShowWelcome: boolean | null
   enterApp: () => void
   resetWelcome: () => void
 }
@@ -16,7 +16,7 @@ export const OnboardingContext = createContext<OnboardingContextType | null>(
 )
 
 export function OnboardingProvider({ children }: OnboardingProviderProps) {
-  const [shouldShowWelcome, setShouldShowWelcome] = useState(true)
+  const [shouldShowWelcome, setShouldShowWelcome] = useState<boolean | null>(null)
 
   useEffect(() => {
     const lastVisit = localStorage.getItem('lastVisit')
@@ -45,16 +45,6 @@ export function OnboardingProvider({ children }: OnboardingProviderProps) {
     localStorage.removeItem('lastVisit')
     setShouldShowWelcome(true)
   }
-
-  // const [user, setUser] = useState<User | null>(null)
-
-  // const login = () => {
-  //   setUser({ name: 'test' })
-  // }
-
-  // const logout = () => {
-  //   setUser(null)
-  // }
 
   return (
     <OnboardingContext.Provider

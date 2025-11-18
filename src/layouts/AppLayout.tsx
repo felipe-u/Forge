@@ -7,7 +7,7 @@ import { useOnboarding } from '../hooks/useOnboarding'
 
 export default function AppLayout() {
   const navigate = useNavigate()
-  const {resetWelcome} = useOnboarding()
+  const { resetWelcome } = useOnboarding()
   const { theme, toggleTheme } = useTheme()
 
   const [toggleMenu, setToggleMenu] = useState(false)
@@ -19,7 +19,7 @@ export default function AppLayout() {
     return () => clearTimeout(timer)
   })
 
-  const handleLogout = () => {
+  const handleExit = () => {
     setFadeOut(true)
 
     setTimeout(() => {
@@ -74,8 +74,8 @@ export default function AppLayout() {
               <NavLink to='/calendar' onClick={hideSideMenu}>
                 Calendar
               </NavLink>
-              <button onClick={handleLogout}>
-                Logout{' '}
+              <button onClick={handleExit}>
+                Exit{' '}
                 <span>
                   <LogoutIcon />
                 </span>{' '}

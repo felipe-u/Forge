@@ -7,6 +7,7 @@ import { ParticlesSparks } from '../components/ParticlesSparks'
 import { useTheme } from '../hooks/useTheme'
 import { AddIcon } from '../components/Icons'
 import '../styles/Dashboard.css'
+import '../styles/Habits.css'
 
 export default function Dashboard() {
   const { habits, update, loading } = useHabits()

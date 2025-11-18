@@ -1,0 +1,37 @@
+.not-found-container {
+  margin: 124px auto;
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+
+.not-found-container h2 {
+  font-size: 48px;
+}
+
+.not-found-container p {
+  font-size: 32px;
+}
+
+.not-found-container button {
+  font-size: 16px;
+  padding: 7px 20px;
+  margin-top: 50px;
+  cursor: pointer;
+  background-color: var(--color-500);
+  border: none;
+  border-radius: 7px;
+  transition: 0.3s ease;
+}
+
+.not-found-container button:hover {
+  background-color: var(--color-700);
+}
+
+.not-found-container.dark {
+  color: whitesmoke;
+}
+
+.not-found-container.light {
+  color: black;
+}

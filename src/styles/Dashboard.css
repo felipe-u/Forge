@@ -28,7 +28,7 @@
   color: #d3d3d3;
 }
 
-.dashboard-section.dashboard-section.light h2 {
+.dashboard-section.light h2 {
   color: #222;
 }
 
@@ -67,11 +67,11 @@
   cursor: default;
 }
 
-.habit-container.habit-container.completed.dark {
+.habit-container.completed.dark {
   opacity: 0.2;
 }
 
-.habit-container.habit-container.completed.light {
+.habit-container.completed.light {
   opacity: 0.4;
 }
 

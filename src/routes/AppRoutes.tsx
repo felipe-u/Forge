@@ -10,6 +10,7 @@ const Dashboard = lazy(() => import('../pages/Dashboard'))
 const Habits = lazy(() => import('../pages/Habits'))
 const Calendar = lazy(() => import('../pages/Calendar'))
 const Habit = lazy(() => import('../pages/HabitDetails'))
+const NotFound = lazy(() => import('../pages/NotFound'))
 
 export default function AppRoutes() {
   return (
@@ -26,11 +27,12 @@ export default function AppRoutes() {
             </WelcomeGuard>
           }
         >
-          <Route index element={<Navigate to='/dashboard' replace />} />
+          <Route index element={<Navigate to='/' replace />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/habits' element={<Habits />} />
           <Route path='/habits/:id' element={<Habit />} />
           <Route path='/calendar' element={<Calendar />} />
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>

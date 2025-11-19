@@ -254,7 +254,6 @@
   border-radius: 15px;
   background-color: var(--color-500);
   font-size: 1.2em;
-  font-weight: bold;
   padding: 5px 20px 5px;
   width: 200px;
   display: flex;
@@ -277,7 +276,8 @@
   left: 0;
   z-index: 50;
   display: grid;
-  place-items: center;
+  align-items: flex-start;
+  justify-content: center;
   animation: blurIn 0.3s forwards;
 }
 
@@ -295,6 +295,7 @@
   justify-content: center;
   gap: 30px;
   padding: 50px 0 25px;
+  margin-top: 90px;
   position: relative;
   animation: zoomIn 0.3s forwards;
 }

@@ -38,28 +38,25 @@ export default function Dashboard() {
   return (
     <>
       <section className={`dashboard-section ${theme}`}>
-        {habits.length > 0 ? (
-          <>
-            <h2>Seize the day</h2>
-            <div className='habits-container'>
-              {habits.map((habit) => (
-                <Habit
-                  key={habit.id}
-                  habit={habit}
-                  onComplete={update}
-                  triggerSpark={triggerSpark}
-                />
-              ))}
-            </div>
-          </>
-        ) : (
-          <button className='new-habit-btn' onClick={openModal}>
+        <h2>Seize the day</h2>
+
+        <div className='habits-container'>
+          {habits.length > 0 &&
+            habits.map((habit) => (
+              <Habit
+                key={habit.id}
+                habit={habit}
+                onComplete={update}
+                triggerSpark={triggerSpark}
+              />
+            ))}
+          <button className={`habit-container new-btn ${theme}`} onClick={openModal}>
             <span>
               <AddIcon />
             </span>
             New Habit
           </button>
-        )}
+        </div>
       </section>
       {showModal && <NewHabit closeModal={closeModal} />}
       {loading && <Loader />}

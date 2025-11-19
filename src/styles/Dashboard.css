@@ -14,7 +14,7 @@
 }
 
 .dashboard-section.light {
-  background-color: #f5f1e4
+  background-color: #f5f1e4;
 }
 
 .dashboard-section h2 {
@@ -86,10 +86,49 @@
 .habit-container.completed:hover {
   background-color: unset;
 }
+
 .habit-container h3,
 .habit-container p {
   font-size: 16px;
   font-weight: 500;
+}
+
+.habit-container.new-btn {
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  height: 48px;
+  transition: 0.3s ease;
+  opacity: 0.6;
+}
+
+.habit-container.new-btn.dark {
+  background-color: transparent;
+  color: whitesmoke;
+  border: 2px dashed #aaa;
+}
+
+.habit-container.new-btn.light {
+  background-color: transparent;
+  color: #222;
+  border: 2px dashed #35332f;
+}
+
+.habit-container.new-btn.dark svg {
+  fill: whitesmoke;
+}
+
+.habit-container.new-btn.light svg {
+  fill: #222;
+}
+
+.habit-container.new-btn span {
+  transform: scale(0.7);
+}
+
+.habit-container.new-btn:hover {
+  /* background-color: var(--color-700); */
+  opacity: 1;
 }
 
 .streak {

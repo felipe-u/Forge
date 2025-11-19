@@ -3,10 +3,16 @@
 A minimalist daily habit-building app focused on clarity, simplicity, and real progress.
 Forge helps you track your habits, maintain streaks, and view your history — all stored locally using IndexedDB.
 
-&nbsp;
-## Demo
+---
 
-Below are short demos showcasing core functionality:
+### Live Demo
+
+👉 **https://forge-ivory.vercel.app**
+
+---
+
+&nbsp;
+## Demo GIFs
 
 ### Core workflow:
 ![Core demo](./src/assets/core-demo.gif)
@@ -30,6 +36,8 @@ Below are short demos showcasing core functionality:
 - Visual history through a calendar view
 - Toast feedback (sonner)
 - Lightweight particle animations (tsparticles)
+- Fully client-side
+- Mobile-friendly UI
 
 &nbsp;
 ## Stack
@@ -48,7 +56,7 @@ Below are short demos showcasing core functionality:
 - Integrating animations without compromising UX
 
 &nbsp;
-## How to run
+## How to run locally
 
 ### Pre-requisites
 - Node.js (v22)

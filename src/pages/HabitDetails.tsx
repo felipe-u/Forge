@@ -79,11 +79,20 @@ export default function Habit() {
     }
   }
 
-  const onEditName: React.KeyboardEventHandler<HTMLInputElement> = async (
+  const onCancel = () => {
+    setEditName((prev) => ({ ...prev, name: habit?.name ?? '' }))
+    hideEditNameInput()
+  }
+
+  const onHandleEnter: React.KeyboardEventHandler<HTMLInputElement> = (
     event
   ) => {
     if (event.key !== 'Enter') return
+    onEditName()
+  }
 
+  const onEditName = async () => {
+    if (editName.name === '') return
     if (editName.name !== habit?.name) {
       try {
         await update(habit?.id as number, editName.name)
@@ -94,12 +103,15 @@ export default function Habit() {
           toast.error(err.message, { toasterId: 'global' })
       }
     }
-
-    setEditName((prev) => ({ ...prev, show: false }))
+    hideEditNameInput()
   }
 
-  const toggleEditName = () => {
-    setEditName((prev) => ({ ...prev, show: !prev.show }))
+  const showEditNameInput = () => {
+    setEditName((prev) => ({ ...prev, show: true }))
+  }
+
+  const hideEditNameInput = () => {
+    setEditName((prev) => ({ ...prev, show: false }))
   }
 
   const goBack = () => {
@@ -120,12 +132,12 @@ export default function Habit() {
                   <td style={{ padding: '5px' }}>
                     <div
                       className={`habit-name ${theme}`}
-                      onClick={toggleEditName}
+                      onClick={showEditNameInput}
                     >
                       {editName.show ? (
                         <input
                           ref={inputRef}
-                          onKeyDown={onEditName}
+                          onKeyDown={onHandleEnter}
                           value={editName.name}
                           onChange={(e) =>
                             setEditName((prev) => ({
@@ -160,13 +172,25 @@ export default function Habit() {
                 </tr>
               </tbody>
             </table>
-
-            <button
-              className={`delete-btn ${theme}`}
-              onClick={() => handleDelete(id)}
-            >
-              Delete
-            </button>
+            <>
+              {editName.show ? (
+                <div className='btn-container'>
+                  <button className={`habit-btn ${theme}`} onClick={onEditName}>
+                    Save
+                  </button>
+                  <button className={`habit-btn ${theme}`} onClick={onCancel}>
+                    Cancel
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className={`habit-btn ${theme}`}
+                  onClick={() => handleDelete(id)}
+                >
+                  Delete
+                </button>
+              )}
+            </>
           </>
         ) : (
           <>
@@ -186,9 +210,6 @@ export default function Habit() {
           <div className='helper-text'>
             <p>
               You can edit the habit name by <strong>clicking</strong> on it
-            </p>
-            <p>
-              If you want to save the new name, press <strong>Enter</strong>
             </p>
           </div>
         </div>

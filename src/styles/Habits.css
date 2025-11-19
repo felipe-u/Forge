@@ -182,7 +182,15 @@
   font-weight: 600;
 }
 
-.delete-btn {
+.btn-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.habit-btn {
   font-size: 0.8em;
   padding: 7px;
   width: 100px;
@@ -190,21 +198,21 @@
   border-radius: 5px;
 }
 
-.delete-btn.dark {
+.habit-btn.dark {
   color: #f5f5f5;
   background-color: black;
 }
 
-.delete-btn.light {
+.habit-btn.light {
   color: #222;
   background-color: #d1c9b7;
 }
 
-.delete-btn.dark:hover {
+.habit-btn.dark:hover {
   background-color: #272722;
 }
 
-.delete-btn.light:hover {
+.habit-btn.light:hover {
   background-color: #b7ae9a;
 }
 
